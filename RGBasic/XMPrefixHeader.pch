@@ -1,0 +1,30 @@
+//
+//  XMPrefixHeader.pch
+//  XMBasicProject
+//
+//  Created by robin on 2017/4/13.
+//  Copyright © 2017年 robin. All rights reserved.
+//
+
+#ifndef XMPrefixHeader_pch
+#define XMPrefixHeader_pch
+
+
+
+
+
+#ifdef __OBJC__
+    #import "XMAppDelegate.h"
+    #import "XMMacro.h"
+    #import "XMHUD.h"
+    #import "XMNetworkMananger.h"
+    #import "UIView+XMViewRect.h"
+    #import "NSString+XMStringTool.h"
+    #import "Masonry.h"
+    #import "XMNavigationBar.h"
+    #import "XMNavigationController.h"
+    #import "XMViewController.h"
+    #import "NSUserDefaults+XMSaveTool.h"
+#endif
+
+#endif /* XMPrefixHeader_pch */
