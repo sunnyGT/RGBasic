@@ -20,9 +20,17 @@
     return M;
 }
 
+- (void)configureNetworkConnectionWithApiid:(NSString *)apiid
+                                     apiKey:(NSString *)apiKey
+                                    baseURL:(NSString *)baseURL{
+    self.apiid = apiid;
+    self.apiKey = apiKey;
+    self -> _baseURL = baseURL;
+}
+
 - (UIViewController *)topViewController{
     
-    UIViewController * selectVC = M.appDelegate.rootViewController.selectedViewController;
+    UIViewController * selectVC = ((XMTabBarController *)M.appDelegate.window.rootViewController).selectedViewController;
     if ([selectVC isKindOfClass:[UINavigationController class]]) {
         return ((XMNavigationController *)selectVC).topViewController;
     }

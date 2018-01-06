@@ -141,27 +141,27 @@
     return MD5Str;
 }
 
-- (NSString *)RSA_Decode{
+- (NSString *)RSA_Decode:(NSString *)privateKey{
     
-    NSData *privateKey = [MF_Base64Codec dataFromBase64String:RSA_PRIVATE_KEY];
-    [[RSAEncryptor sharedInstance] loadPublicKeyFromData:privateKey];
+    NSData *tempPrivateKey = [MF_Base64Codec dataFromBase64String:privateKey];
+    [[RSAEncryptor sharedInstance] loadPublicKeyFromData:tempPrivateKey];
     return [[RSAEncryptor sharedInstance] rsaDecryptString:self];
 }
 
-- (NSString *)RSA_Encode{
+- (NSString *)RSA_Encode:(NSString *)publicKey{
     
-    NSData *publicKey = [MF_Base64Codec dataFromBase64String:RSA_PUBLIC_KEY];
-    [[RSAEncryptor sharedInstance] loadPublicKeyFromData:publicKey];
+    NSData *tempPublicKey = [MF_Base64Codec dataFromBase64String:publicKey];
+    [[RSAEncryptor sharedInstance] loadPublicKeyFromData:tempPublicKey];
     return [[RSAEncryptor sharedInstance] rsaEncryptString:self];
 }
 
-- (NSString *)AES_Decode{
+- (NSString *)AES_Decode:key{
     
-    return [Encryption AES128Decrypt:self key:AES_ENCODE_AND_DECODE_KEY];
+    return [Encryption AES128Decrypt:self key:key];
 }
-- (NSString *)AES_Encode{
+- (NSString *)AES_Encode:(NSString *)key{
     
-    return [Encryption AES128Encrypt:self key:AES_ENCODE_AND_DECODE_KEY];
+    return [Encryption AES128Encrypt:self key:key];
 }
 
 + (NSString *)decodeQRCIImage:(CIImage *)image{

@@ -10,26 +10,35 @@
 #import "AFNetworking.h"
 @class XMNetworkMananger;
 
-
 typedef NS_ENUM(NSUInteger, SessionConfigurationType) {
     DefaultsConfiguration,
 };
 
 @protocol XMNetworkManangerDelegate <NSObject>
 
-
-
 @optional
 
 - (NSURLSessionConfiguration *)configuration:(SessionConfigurationType)type;//未完待续
+
+
+/**
+ 可自定义相关配置
+ */
 - (NSURLSessionConfiguration *)defaultConfiguration;
 - (AFHTTPSessionManager *)defaultSessionManager;
+
 - (NSDictionary *)handleParameters:(NSDictionary *)parameters error:(NSError **)error;
 - (NSDictionary *)handleSuccessResponse:(id)response error:(NSError **)error;
+
+/**
+ 自定义处理错误信息 在错误回调返回之前执行
+ @param error 错误
+ */
 - (void)handleRequestFailure:(NSError *)error;
 @end
 
 @interface XMNetworkMananger : NSObject<XMNetworkManangerDelegate>
+
 
 + (instancetype)manager;
 

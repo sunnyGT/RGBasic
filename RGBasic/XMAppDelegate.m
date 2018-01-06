@@ -23,29 +23,26 @@ XMProjectManager *M = nil;
     return UIInterfaceOrientationMaskPortrait;
 }
 
-/**
- 默认实现方式 根据项目需求重写或修改该方法实现
- */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    [[UITabBar appearance] setItemWidth:20.f];
-    self.window  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    _window.backgroundColor = [UIColor whiteColor];
-    _window.rootViewController = [self setupRootViewController];
-    [_window makeKeyAndVisible];
-    
+
 #pragma mark - 项目管理者 (全局变量存放地 声明周期)
     M = [XMProjectManager manager];
     M.appDelegate = self;
     
-
+    self.window  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _window.backgroundColor = [UIColor whiteColor];
+    _window.rootViewController = [self setupRootViewController];
+    if ([self respondsToSelector:@selector(configureProjectBeforeWindownVisible)]) {
+        [self configureProjectBeforeWindownVisible];
+    }
+    [_window makeKeyAndVisible];
     
     return YES;
 }
 
 - (XMTabBarController *)setupRootViewController{
     
-    return self.rootViewController;
+    return nil;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

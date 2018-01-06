@@ -39,7 +39,6 @@
 		000C32931EB99C9400E75D6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000C32921EB99C9400E75D6C /* UIKit.framework */; };
 		000C37101EB9C6D100E75D6C /* XMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C370F1EB9C6D100E75D6C /* XMTabBarController.m */; };
 		002BBC2D1EEFC9B90027D470 /* XMWKWebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002BBC2C1EEFC9B90027D470 /* XMWKWebviewViewController.m */; };
-		002BBC301EEFCA200027D470 /* XMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002BBC2F1EEFCA200027D470 /* XMObject.m */; };
 		003A2D0A1FC7F2620019DB5D /* XMPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003A2D091FC7F2620019DB5D /* XMPopView.m */; };
 		009B433D1ED55FAB00AFA967 /* UITableViewCell+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 009B433C1ED55FAB00AFA967 /* UITableViewCell+Tool.m */; };
 		00DA41451F73556A00E767F5 /* UIButton+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DA41441F73556A00E767F5 /* UIButton+Tools.m */; };
@@ -144,8 +143,7 @@
 		000C372C1EB9D12D00E75D6C /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		002BBC2B1EEFC9B90027D470 /* XMWKWebviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWKWebviewViewController.h; sourceTree = "<group>"; };
 		002BBC2C1EEFC9B90027D470 /* XMWKWebviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWKWebviewViewController.m; sourceTree = "<group>"; };
-		002BBC2E1EEFCA200027D470 /* XMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMObject.h; sourceTree = "<group>"; };
-		002BBC2F1EEFCA200027D470 /* XMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMObject.m; sourceTree = "<group>"; };
+		00300B2E200098EE00ED11B1 /* XM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XM.h; sourceTree = "<group>"; };
 		003A2D081FC7F2620019DB5D /* XMPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMPopView.h; sourceTree = "<group>"; };
 		003A2D091FC7F2620019DB5D /* XMPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMPopView.m; sourceTree = "<group>"; };
 		009B433B1ED55FAB00AFA967 /* UITableViewCell+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Tool.h"; sourceTree = "<group>"; };
@@ -224,6 +222,7 @@
 				000C32601EB98C8F00E75D6C /* XMPrefixHeader.pch */,
 				000C32541EB98C8F00E75D6C /* XMMacro.h */,
 				000C35601EB99E0100E75D6C /* Relevance */,
+				00300B2E200098EE00ED11B1 /* XM.h */,
 			);
 			path = RGBasic;
 			sourceTree = "<group>";
@@ -316,8 +315,6 @@
 		000C32671EB98C8F00E75D6C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				002BBC2E1EEFCA200027D470 /* XMObject.h */,
-				002BBC2F1EEFCA200027D470 /* XMObject.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -482,7 +479,6 @@
 				000C32741EB98C8F00E75D6C /* UINavigationBar+XMNavigationTool.m in Sources */,
 				000C37101EB9C6D100E75D6C /* XMTabBarController.m in Sources */,
 				7D7C99D11EDE51D20053FEE8 /* UIImage+AHUIImage.m in Sources */,
-				002BBC301EEFCA200027D470 /* XMObject.m in Sources */,
 				00F400DC1FC2C4EB005722E5 /* XMForm.m in Sources */,
 				00EE6B861ED037D9007915A2 /* XMTableViewController.m in Sources */,
 				7D0AB7F61ED81119008EBB6A /* UIButton+ImageAndTitleLayout.m in Sources */,

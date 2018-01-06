@@ -10,8 +10,8 @@
 #import "MBProgressHUD.h"
 @implementation XMHUD
 
-#define HUD_TOP_ORIGINY (115 * Screen_ScaleH - Screen_CenterY)
-#define HUD_BOTTOM_ORIGINY (Screen_CenterY - 100 *Screen_ScaleH)
+#define HUD_TOP_ORIGINY (115 * Screen_Scale - Screen_CenterY)
+#define HUD_BOTTOM_ORIGINY (Screen_CenterY - 100 *Screen_Scale)
 
 + (void)showHUDToView:(UIView *)view{
     [MBProgressHUD hideHUDForView:view animated:NO];

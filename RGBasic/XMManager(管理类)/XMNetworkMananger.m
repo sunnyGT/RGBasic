@@ -35,6 +35,7 @@
     
     self = [super init];
     if (self) {
+        
         _sessionConfiguration = configuration;
     }
     return self;
@@ -59,13 +60,19 @@
 }
 
 - (NSURLSessionConfiguration *)defaultConfiguration{
-    return [NSURLSessionConfiguration defaultSessionConfiguration];
     
+    return [NSURLSessionConfiguration defaultSessionConfiguration];
+}
+
+- (NSString *)basicURLString{
+    
+    return @"";
 }
 
 - (AFHTTPSessionManager *)defaultSessionManager{
-    
-    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:XM_BASIC_URL] sessionConfiguration:self.sessionConfiguration];
+
+    NSAssert(!([M.baseURL isEmpty] ||isNUllOrNil(M.baseURL)), @"请在didFinishLaunchingWithOptions中发生网络请求之前完成 XMProjectManager 中的网络相关配置");
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:M.baseURL] sessionConfiguration:self.sessionConfiguration];
     sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
     sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
@@ -274,6 +281,52 @@
     
     [downloadTask resume];
     return downloadTask;
+}
+
+- (NSDictionary *)handleParameters:(NSDictionary *)parameters error:(NSError *__autoreleasing *)error{
+    
+    if (!parameters) parameters = @{};
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    
+    NSDate *date = [NSDate date];
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", [date timeIntervalSince1970]];// 转为字符型
+    [params setObject:timeString forKey:@"time"];
+    [params setObject:@"2" forKey:@"terminal"];
+    [params setObject:M.apiid forKey:@"apiId"];
+    NSString *hash = [self createHashWithParamKeys:params.allKeys];
+    [params setObject:hash forKey:@"hash"];
+    
+// hash apiId terminal time
+
+    return params;
+}
+
+- (NSString *)createHashWithParamKeys:(NSArray *)keys{
+
+    NSArray *sortArr = [keys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }];
+    NSString *tempHash = [sortArr componentsJoinedByString:@""];
+    NSString *hash = [[tempHash stringByAppendingString:M.apiKey] MD5];
+    return hash;
+}
+
+- (NSDictionary *)handleSuccessResponse:(id)response error:(NSError *__autoreleasing *)error{
+    
+    if ([response isKindOfClass:[NSDictionary class]]) {
+        if ([response[@"Code"] integerValue] == 0) {
+            return response;
+        }else{
+            
+            *error  = [NSError errorWithDomain:response[@"Msg"] code:[response[@"Code"] integerValue] userInfo:response];
+        }
+        
+    }else{
+        
+        *error  = [NSError errorWithDomain:@"返回数据格式错误" code:1050000 userInfo:@{@"response":response}];
+    }
+    return response;
 }
 
 

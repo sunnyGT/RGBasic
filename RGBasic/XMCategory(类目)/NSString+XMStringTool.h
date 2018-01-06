@@ -36,11 +36,11 @@ typedef enum : NSUInteger {
 
 //加密相关
 - (NSString *)MD5;
-- (NSString *)RSA_Encode;
-- (NSString *)RSA_Decode;
+- (NSString *)RSA_Encode:(NSString *)publicKey;
+- (NSString *)RSA_Decode:(NSString *)privateKey;
 
-- (NSString *)AES_Encode;
-- (NSString *)AES_Decode;
+- (NSString *)AES_Encode:(NSString *)key;
+- (NSString *)AES_Decode:(NSString *)key;
 
 - (UIColor *)hexColor;
 

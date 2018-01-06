@@ -17,25 +17,31 @@ Pod::Spec.new do |s|
 
   s.name         = "RGBasic"
   s.version      = "0.0.1"
-  s.summary      = "A basic project."
+  s.summary      = "A basic RGBasic."
 
   s.homepage     = "https://github.com/sunnyGT/RGBasic"
 
 
-  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+ # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
   s.author             = { "Robin_Gzb" => "a184820975@sina.cn" }
 
   s.platform     = :ios
   s.platform     = :ios, "9.0"
+  s.ios.deployment_target = "9.0"
 
-  s.source       = { :git => "https://github.com/sunnyGT/RGBasic.git", :tag => "{s.version}" }
+  s.source       = { :git => "https://github.com/sunnyGT/RGBasic.git", :tag => s.version }
 
 
   s.source_files  = "RGBasic", "RGBasic/**/*.{h,m}" , "RGBasic/**/**/*.{h,m}"
 
   s.framework  = "UIKit"
   s.requires_arc = true
+
+
+  s.xcconfig = {"USER_HEADER_SEARCH_PATHS"=>"$(SRCROOT)" }
+
+  s.prefix_header_file = 'RGBasic/XMPrefixHeader.pch'
 
   s.dependency "AFNetworking", "~> 3.1.0"
   s.dependency "Masonry", "~> 1.1.0"

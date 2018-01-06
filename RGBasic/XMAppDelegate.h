@@ -12,10 +12,14 @@
 
 extern XMProjectManager *M;
 
-@interface XMAppDelegate : UIResponder <UIApplicationDelegate>
+@protocol XMAppDelegateDelegate<NSObject>
+@optional
+- (void)configureProjectBeforeWindownVisible;
+@end
+
+@interface XMAppDelegate : UIResponder <UIApplicationDelegate,XMAppDelegateDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) XMTabBarController *rootViewController;
 
 - (XMTabBarController *)setupRootViewController;
 

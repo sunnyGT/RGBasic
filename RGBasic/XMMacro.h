@@ -133,8 +133,8 @@ id clsObject = [cls new];
 #define Screen_Height [[UIScreen mainScreen] bounds].size.height
 #define Screen_Width [[UIScreen mainScreen] bounds].size.width
 #define Screen_CenterY CGRectGetMidY([[UIScreen mainScreen] bounds])
-#define Screen_ScaleW (Screen_Width/375.f)
-#define Screen_ScaleH (Screen_Height/667.f)
+#define Screen_Scale (Screen_Width/375.f)
+
 #define NavigationBarHeight 44.f
 #define StatusBarHeight 20.f
 #define NavigationBarBottomY (64.f+(kDevice_Is_iPhoneX?24:0))
@@ -147,7 +147,7 @@ id clsObject = [cls new];
 //HelveticaNeue-Medium
 //HelveticaNeue-Thin
 //HelveticaNeue-Regular
-#define XMFontOfSize(SIZE) [UIFont fontWithName:@"HelveticaNeue" size:((SIZE) * Screen_ScaleH)]
+#define XMFontOfSize(SIZE) [UIFont fontWithName:@"HelveticaNeue" size:((SIZE) * Screen_Scale)]
 
 #define XMFontWithNameAndSize(NAME,SIZE) [UIFont fontWithName:NAME size:((SIZE) * Screen_ScaleH)]
 
@@ -171,22 +171,6 @@ id clsObject = [cls new];
 #define  RGB(R,G,B) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1]
 #define  RGBA(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A];
 
-
-#pragma mark - Rect
-
-
-#pragma mark - Host
-
-#define XM_SUCCESS_CODE 0
-//http://xmap1708111.php.hzxmnet.com/Admin/Index/index.html
-#define XM_BASIC_URL @"http://xmap1708111.php.hzxmnet.com"
-
-#pragma mark - Key
-
-#define RSA_PUBLIC_KEY @""
-#define RSA_PRIVATE_KEY @""
-
-#define AES_ENCODE_AND_DECODE_KEY @"7L26ZYCYRNQF43A3"
 
 #ifndef IS_SIMULATOR
     #if TARGET_IPHONE_SIMULATOR
