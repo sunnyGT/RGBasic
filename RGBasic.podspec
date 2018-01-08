@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RGBasic"
-  s.version      = "0.0.4"
+  s.version      = "0.0.6"
   s.summary      = "A basic RGBasic."
   s.homepage     = "https://github.com/sunnyGT/RGBasic"
   s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/sunnyGT/RGBasic.git", :tag => s.version }
 
 
-  s.source_files  = "RGBasic/XM.h" , "RGBasic/Relevance/*.h" , "RGBasic/XMMacro.h"
+  s.source_files  = "RGBasic/XM.h" , "RGBasic/Relevance/*.h"
 
 
   s.subspec 'RGMacro' do |ms|
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'RGBasicUI' do |bs|
 
-    bs.source_files = 'RGBasic/XMBasicUI(UI基类)/*.{h,m}'
+    bs.source_files = 'RGBasic/XMBasicUI(UI基类)/*.{h,m}' , 'RGBasic/XMBasicUI(UI基类)/**/*.{h,m}'
     bs.public_header_files = 'RGBasic/XMBasicUI(UI基类)/*.h'
     bs.dependency "Masonry", "~> 1.1.0"
     bs.dependency "RGBasic/RGMacro"
