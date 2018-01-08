@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "RGBasic"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A basic RGBasic."
 
   s.homepage     = "https://github.com/sunnyGT/RGBasic"
@@ -43,10 +43,14 @@ Pod::Spec.new do |s|
 
   s.prefix_header_file = 'RGBasic/XMPrefixHeader.pch'
 
-  s.dependency "AFNetworking", "~> 3.1.0"
+  
   s.dependency "Masonry", "~> 1.1.0"
-  s.dependency "SDWebImage", "~> 4.2.2"
   s.dependency "MBProgressHUD", "~> 1.1.0"
   s.dependency "Base64", "~> 1.1.2"
-  s.dependency "Mantle", "~> 2.1.0"
+  
+  s.subspec 'RGNetwork' do |ss|
+
+    ss.source_files = 'RGBasic/XMNetWork(网络)/*.{h,m}'
+    ss.dependency "AFNetworking", "~> 3.1.0"
+  end
 end

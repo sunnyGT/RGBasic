@@ -36,7 +36,6 @@ XMProjectManager *M = nil;
         [self configureProjectBeforeWindownVisible];
     }
     [_window makeKeyAndVisible];
-    
     return YES;
 }
 

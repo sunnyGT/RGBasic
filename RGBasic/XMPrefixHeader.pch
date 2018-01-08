@@ -10,9 +10,6 @@
 #define XMPrefixHeader_pch
 
 
-
-
-
 #ifdef __OBJC__
     #import "XMAppDelegate.h"
     #import "XMMacro.h"

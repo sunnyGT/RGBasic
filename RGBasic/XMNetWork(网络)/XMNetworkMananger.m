@@ -7,7 +7,7 @@
 //
 
 #import "XMNetworkMananger.h"
-#import "NSString+XMStringTool.h"
+#import<CommonCrypto/CommonDigest.h>
 
 @interface XMNetworkMananger ()
 
@@ -70,9 +70,10 @@
 }
 
 - (AFHTTPSessionManager *)defaultSessionManager{
-
-    NSAssert(!([M.baseURL isEmpty] ||isNUllOrNil(M.baseURL)), @"请在didFinishLaunchingWithOptions中发生网络请求之前完成 XMProjectManager 中的网络相关配置");
-    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:M.baseURL] sessionConfiguration:self.sessionConfiguration];
+    
+    NSString *baseURL = [XMNetworkConfigure networkConfigure].baseURL;
+    NSAssert(!([baseURL isEqualToString:@""] || baseURL == kCFNull || !baseURL ), @"请在didFinishLaunchingWithOptions中发生网络请求之前完成 XMNetworkConfigure 初始化并完成网络相关配置");
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:baseURL] sessionConfiguration:self.sessionConfiguration];
     sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
     sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
@@ -106,10 +107,10 @@
                                          if ([self respondsToSelector:@selector(handleSuccessResponse: error:)]) {
                                              NSError *error = nil;
                                              handelDic = [self handleSuccessResponse:responseObject error:&error];
-                                             if (error) {
 #ifdef DEBUG
-                                                 NSLog(@"+++URL:%@ \n ++Param:%@ \n +response:%@",URL,handelDic,responseObject);
+                                             NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,responseObject,error.description);
 #endif
+                                             if (error) {
                                                  failure(error,task);
                                                  return;
                                              }
@@ -159,10 +160,11 @@
                                           if ([self respondsToSelector:@selector(handleSuccessResponse: error:)]) {
                                               NSError *error = nil;
                                               handelDic = [self handleSuccessResponse:responseObject error:&error];
-                                              if (error) {
+                                              
 #ifdef DEBUG
-                                                  NSLog(@"+++URL:%@ \n ++Param:%@ \n +response:%@",URL,headledParam,responseObject);
+                                              NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,responseObject,error.description);
 #endif
+                                              if (error) {
                                                   failure(error,task);
                                                   return;
                                               }
@@ -213,11 +215,13 @@
         id handelDic = responseObject;
         if ([self respondsToSelector:@selector(handleSuccessResponse: error:)]) {
             NSError *error = nil;
+            
             handelDic = [self handleSuccessResponse:responseObject error:&error];
-            if (error) {
 #ifdef DEBUG
-                NSLog(@"+++URL:%@ \n ++Param:%@ \n +response:%@",URL,handelDic,responseObject);
+            NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,responseObject,error.description);
 #endif
+            if (error) {
+                
                 failure(error,task);
                 return;
             }
@@ -262,17 +266,24 @@
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
-        
-        return filePath?[NSURL fileURLWithPath:filePath] : [NSURL fileURLWithPath:[NSString XM_CreatePathWith:NSDocumentDirectory fileName:@"XM_DownLoad" name:response.suggestedFilename]];
+        NSString *XMPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"XM"];
+        NSString *customPath = [XMPath stringByAppendingPathComponent:@"XM_DownLoad"];
+        NSFileManager *tempManager = [NSFileManager defaultManager];
+        if (![tempManager fileExistsAtPath:customPath]) {
+            [tempManager createDirectoryAtPath:customPath withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+        NSString *downLoadPath = [customPath stringByAppendingPathComponent:response.suggestedFilename];
+        return filePath?[NSURL fileURLWithPath:filePath] : [NSURL fileURLWithPath:downLoadPath];
         
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
+#ifdef DEBUG
+        NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,responseObject,error.description);
+#endif
         //对response操作
         if (error) {
-#ifdef DEBUG
-            NSLog(@"+++URL:%@ \n ++Param:%@ \n +response:%@",URL,paramDic,response);
-#endif
+            
             failure(error,downloadTask);
         }else{
             success(filePath,downloadTask);
@@ -293,7 +304,7 @@
     NSString *timeString = [NSString stringWithFormat:@"%.0f", [date timeIntervalSince1970]];// 转为字符型
     [params setObject:timeString forKey:@"time"];
     [params setObject:@"2" forKey:@"terminal"];
-    [params setObject:M.apiid forKey:@"apiId"];
+    [params setObject:[XMNetworkConfigure networkConfigure].apiid forKey:@"apiId"];
     NSString *hash = [self createHashWithParamKeys:params.allKeys];
     [params setObject:hash forKey:@"hash"];
     
@@ -308,18 +319,19 @@
         return [obj1 compare:obj2];
     }];
     NSString *tempHash = [sortArr componentsJoinedByString:@""];
-    NSString *hash = [[tempHash stringByAppendingString:M.apiKey] MD5];
+    NSString *hash = [self MD5:[tempHash stringByAppendingString:[XMNetworkConfigure networkConfigure].apiKey]];
     return hash;
 }
 
 - (NSDictionary *)handleSuccessResponse:(id)response error:(NSError *__autoreleasing *)error{
     
-    if ([response isKindOfClass:[NSDictionary class]]) {
-        if ([response[@"Code"] integerValue] == 0) {
+    if ([response isKindOfClass:[NSDictionary class]] && [response[@"Data"] isKindOfClass:[NSDictionary class]]) {
+        if ([response[@"Code"] isEqualToString:@"000000"] ) {
+            
             return response;
         }else{
             
-            *error  = [NSError errorWithDomain:response[@"Msg"] code:[response[@"Code"] integerValue] userInfo:response];
+            *error = [NSError errorWithDomain:response[@"Msg"] code:[response[@"Code"] integerValue] userInfo:response];
         }
         
     }else{
@@ -329,5 +341,16 @@
     return response;
 }
 
+- (NSString *)MD5:(NSString *)str{
+    //32位
+    const char *charStr = [str UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(charStr, CC_MD5_DIGEST_LENGTH, result);
+    NSMutableString *MD5Str = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH*2];
+    for (NSUInteger idx = 0 ; idx < CC_MD5_DIGEST_LENGTH; idx ++) {
+        [MD5Str appendFormat:@"%02X",result[idx]];
+    }
+    return MD5Str;
+}
 
 @end

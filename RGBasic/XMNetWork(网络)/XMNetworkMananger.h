@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
+#import "XMNetworkConfigure.h"
 @class XMNetworkMananger;
 
 typedef NS_ENUM(NSUInteger, SessionConfigurationType) {
+    
     DefaultsConfiguration,
 };
 
@@ -19,7 +21,6 @@ typedef NS_ENUM(NSUInteger, SessionConfigurationType) {
 @optional
 
 - (NSURLSessionConfiguration *)configuration:(SessionConfigurationType)type;//未完待续
-
 
 /**
  可自定义相关配置
@@ -37,8 +38,9 @@ typedef NS_ENUM(NSUInteger, SessionConfigurationType) {
 - (void)handleRequestFailure:(NSError *)error;
 @end
 
-@interface XMNetworkMananger : NSObject<XMNetworkManangerDelegate>
 
+
+@interface XMNetworkMananger : NSObject<XMNetworkManangerDelegate>
 
 + (instancetype)manager;
 
