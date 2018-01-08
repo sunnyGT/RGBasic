@@ -15,7 +15,6 @@
 		000C32741EB98C8F00E75D6C /* UINavigationBar+XMNavigationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C324F1EB98C8F00E75D6C /* UINavigationBar+XMNavigationTool.m */; };
 		000C32751EB98C8F00E75D6C /* UITextField+WordLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32511EB98C8F00E75D6C /* UITextField+WordLimit.m */; };
 		000C32761EB98C8F00E75D6C /* UIView+XMViewRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32531EB98C8F00E75D6C /* UIView+XMViewRect.m */; };
-		000C32791EB98C8F00E75D6C /* XMProjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C325B1EB98C8F00E75D6C /* XMProjectManager.m */; };
 		000C327C1EB98C8F00E75D6C /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32661EB98C8F00E75D6C /* Encryption.m */; };
 		000C327E1EB98C8F00E75D6C /* RSAEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C326D1EB98C8F00E75D6C /* RSAEncryptor.m */; };
 		000C32811EB99C6A00E75D6C /* XMNavigationBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32431EB98C8F00E75D6C /* XMNavigationBar.h */; };
@@ -27,7 +26,6 @@
 		000C32871EB99C6A00E75D6C /* UITextField+WordLimit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32501EB98C8F00E75D6C /* UITextField+WordLimit.h */; };
 		000C32881EB99C6A00E75D6C /* UIView+XMViewRect.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32521EB98C8F00E75D6C /* UIView+XMViewRect.h */; };
 		000C32891EB99C6A00E75D6C /* XMMacro.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32541EB98C8F00E75D6C /* XMMacro.h */; };
-		000C328C1EB99C6A00E75D6C /* XMProjectManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C325A1EB98C8F00E75D6C /* XMProjectManager.h */; };
 		000C328E1EB99C6A00E75D6C /* Encryption.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32651EB98C8F00E75D6C /* Encryption.h */; };
 		000C32901EB99C6A00E75D6C /* RSAEncryptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C326C1EB98C8F00E75D6C /* RSAEncryptor.h */; };
 		000C32931EB99C9400E75D6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000C32921EB99C9400E75D6C /* UIKit.framework */; };
@@ -38,7 +36,8 @@
 		00DA41451F73556A00E767F5 /* UIButton+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DA41441F73556A00E767F5 /* UIButton+Tools.m */; };
 		00EC0AE0200305E300FB7735 /* XMNetworkConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0ADD200305E300FB7735 /* XMNetworkConfigure.m */; };
 		00EC0AE1200305E300FB7735 /* XMNetworkMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0ADF200305E300FB7735 /* XMNetworkMananger.m */; };
-		00EC0AE6200341AB00FB7735 /* XMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0AE5200341AB00FB7735 /* XMAppDelegate.m */; };
+		00EC0AEC2003565800FB7735 /* XMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0AE92003565800FB7735 /* XMAppDelegate.m */; };
+		00EC0AED2003565800FB7735 /* XMProjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0AEB2003565800FB7735 /* XMProjectManager.m */; };
 		00EE6B861ED037D9007915A2 /* XMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE6B851ED037D9007915A2 /* XMTableViewController.m */; };
 		00EE6B891ED04649007915A2 /* UITableView+XMTableViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE6B881ED04649007915A2 /* UITableView+XMTableViewTool.m */; };
 		00F400D91FC2C131005722E5 /* XMFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F400D81FC2C131005722E5 /* XMFormViewController.m */; };
@@ -64,7 +63,6 @@
 				000C32871EB99C6A00E75D6C /* UITextField+WordLimit.h in CopyFiles */,
 				000C32881EB99C6A00E75D6C /* UIView+XMViewRect.h in CopyFiles */,
 				000C32891EB99C6A00E75D6C /* XMMacro.h in CopyFiles */,
-				000C328C1EB99C6A00E75D6C /* XMProjectManager.h in CopyFiles */,
 				000C328E1EB99C6A00E75D6C /* Encryption.h in CopyFiles */,
 				000C32901EB99C6A00E75D6C /* RSAEncryptor.h in CopyFiles */,
 			);
@@ -91,8 +89,6 @@
 		000C32521EB98C8F00E75D6C /* UIView+XMViewRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMViewRect.h"; sourceTree = "<group>"; };
 		000C32531EB98C8F00E75D6C /* UIView+XMViewRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMViewRect.m"; sourceTree = "<group>"; };
 		000C32541EB98C8F00E75D6C /* XMMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMacro.h; sourceTree = "<group>"; };
-		000C325A1EB98C8F00E75D6C /* XMProjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMProjectManager.h; sourceTree = "<group>"; };
-		000C325B1EB98C8F00E75D6C /* XMProjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMProjectManager.m; sourceTree = "<group>"; };
 		000C32601EB98C8F00E75D6C /* XMPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPrefixHeader.pch; sourceTree = "<group>"; };
 		000C32651EB98C8F00E75D6C /* Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encryption.h; sourceTree = "<group>"; };
 		000C32661EB98C8F00E75D6C /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
@@ -156,8 +152,10 @@
 		00EC0ADE200305E300FB7735 /* XMNetworkMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNetworkMananger.h; sourceTree = "<group>"; };
 		00EC0ADF200305E300FB7735 /* XMNetworkMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNetworkMananger.m; sourceTree = "<group>"; };
 		00EC0AE32003419900FB7735 /* XMTableViewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMTableViewCellDelegate.h; sourceTree = "<group>"; };
-		00EC0AE4200341AB00FB7735 /* XMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMAppDelegate.h; sourceTree = "<group>"; };
-		00EC0AE5200341AB00FB7735 /* XMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMAppDelegate.m; sourceTree = "<group>"; };
+		00EC0AE82003565800FB7735 /* XMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMAppDelegate.h; sourceTree = "<group>"; };
+		00EC0AE92003565800FB7735 /* XMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMAppDelegate.m; sourceTree = "<group>"; };
+		00EC0AEA2003565800FB7735 /* XMProjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMProjectManager.h; sourceTree = "<group>"; };
+		00EC0AEB2003565800FB7735 /* XMProjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMProjectManager.m; sourceTree = "<group>"; };
 		00EE6B841ED037D9007915A2 /* XMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMTableViewController.h; sourceTree = "<group>"; };
 		00EE6B851ED037D9007915A2 /* XMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMTableViewController.m; sourceTree = "<group>"; };
 		00EE6B871ED04649007915A2 /* UITableView+XMTableViewTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XMTableViewTool.h"; sourceTree = "<group>"; };
@@ -206,10 +204,10 @@
 		000C32361EB98BEE00E75D6C /* RGBasic */ = {
 			isa = PBXGroup;
 			children = (
+				00EC0AE72003565800FB7735 /* XMAboutProject(工程相关) */,
 				00EC0ADB200305E300FB7735 /* XMNetWork(网络) */,
 				000C32421EB98C8F00E75D6C /* XMBasicUI(UI基类) */,
 				000C32491EB98C8F00E75D6C /* XMCategory(类目) */,
-				000C32551EB98C8F00E75D6C /* XMManager(管理类) */,
 				000C32631EB98C8F00E75D6C /* XMUtilities(工具) */,
 				000C32601EB98C8F00E75D6C /* XMPrefixHeader.pch */,
 				000C32541EB98C8F00E75D6C /* XMMacro.h */,
@@ -272,17 +270,6 @@
 				00DA41441F73556A00E767F5 /* UIButton+Tools.m */,
 			);
 			path = "XMCategory(类目)";
-			sourceTree = "<group>";
-		};
-		000C32551EB98C8F00E75D6C /* XMManager(管理类) */ = {
-			isa = PBXGroup;
-			children = (
-				00EC0AE4200341AB00FB7735 /* XMAppDelegate.h */,
-				00EC0AE5200341AB00FB7735 /* XMAppDelegate.m */,
-				000C325A1EB98C8F00E75D6C /* XMProjectManager.h */,
-				000C325B1EB98C8F00E75D6C /* XMProjectManager.m */,
-			);
-			path = "XMManager(管理类)";
 			sourceTree = "<group>";
 		};
 		000C32631EB98C8F00E75D6C /* XMUtilities(工具) */ = {
@@ -387,6 +374,17 @@
 			path = XMDelegate;
 			sourceTree = "<group>";
 		};
+		00EC0AE72003565800FB7735 /* XMAboutProject(工程相关) */ = {
+			isa = PBXGroup;
+			children = (
+				00EC0AE82003565800FB7735 /* XMAppDelegate.h */,
+				00EC0AE92003565800FB7735 /* XMAppDelegate.m */,
+				00EC0AEA2003565800FB7735 /* XMProjectManager.h */,
+				00EC0AEB2003565800FB7735 /* XMProjectManager.m */,
+			);
+			path = "XMAboutProject(工程相关)";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -455,12 +453,13 @@
 				00EC0AE1200305E300FB7735 /* XMNetworkMananger.m in Sources */,
 				003A2D0A1FC7F2620019DB5D /* XMPopView.m in Sources */,
 				00DA41451F73556A00E767F5 /* UIButton+Tools.m in Sources */,
+				00EC0AED2003565800FB7735 /* XMProjectManager.m in Sources */,
 				000C32721EB98C8F00E75D6C /* NSString+XMStringTool.m in Sources */,
 				009B433D1ED55FAB00AFA967 /* UITableViewCell+Tool.m in Sources */,
 				000C32711EB98C8F00E75D6C /* XMViewController.m in Sources */,
-				000C32791EB98C8F00E75D6C /* XMProjectManager.m in Sources */,
 				00F400D91FC2C131005722E5 /* XMFormViewController.m in Sources */,
 				00EC0AE0200305E300FB7735 /* XMNetworkConfigure.m in Sources */,
+				00EC0AEC2003565800FB7735 /* XMAppDelegate.m in Sources */,
 				000C32741EB98C8F00E75D6C /* UINavigationBar+XMNavigationTool.m in Sources */,
 				000C37101EB9C6D100E75D6C /* XMTabBarController.m in Sources */,
 				7D7C99D11EDE51D20053FEE8 /* UIImage+AHUIImage.m in Sources */,
@@ -470,7 +469,6 @@
 				7D7C99921EDC727C0053FEE8 /* UIView+Category.m in Sources */,
 				000C326F1EB98C8F00E75D6C /* XMNavigationBar.m in Sources */,
 				002BBC2D1EEFC9B90027D470 /* XMWKWebviewViewController.m in Sources */,
-				00EC0AE6200341AB00FB7735 /* XMAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

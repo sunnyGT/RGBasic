@@ -54,6 +54,12 @@ Pod::Spec.new do |s|
     us.dependency "MBProgressHUD", "~> 1.1.0"
     us.dependency "RGBasic/RGMacro"
   end
+
+  s.subspec 'RGAboutProject' do |as|
+
+    as.source_files = 'RGBasic/XMAboutProject(工程相关)/*.{h,m}'
+    as.dependency "RGBasic/RGBasicUI"
+  end
   
 
   s.framework  = "UIKit"
