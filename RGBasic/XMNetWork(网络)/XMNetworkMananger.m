@@ -345,10 +345,10 @@
     //32位
     const char *charStr = [str UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(charStr, CC_MD5_DIGEST_LENGTH, result);
+    CC_MD5(charStr, (CC_LONG)strlen(charStr), result);
     NSMutableString *MD5Str = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH*2];
     for (NSUInteger idx = 0 ; idx < CC_MD5_DIGEST_LENGTH; idx ++) {
-        [MD5Str appendFormat:@"%02X",result[idx]];
+        [MD5Str appendFormat:@"%02x",result[idx]];
     }
     return MD5Str;
 }
