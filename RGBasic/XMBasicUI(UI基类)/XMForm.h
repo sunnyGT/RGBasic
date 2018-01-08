@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 typedef enum : NSUInteger {
     Form_TextField,
     Form_Accessory,

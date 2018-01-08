@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class XMAppDelegate;
 @interface XMProjectManager : NSObject

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MBProgressHUD.h"
 
-@class MBProgressHUD;
 @interface XMHUD : NSObject
 
 + (void)showHUDToView:(UIView *)view;
@@ -27,7 +27,7 @@
 + (void)showHUDToView:(UIView *)view onlyText:(NSString *)onlyText;
 
 + (MBProgressHUD *)showHUDToView:(UIView *)view progress:(NSProgress *)progress complete:(BOOL)complete;
-+ (void)popToView:(UIView *)view customView:(UIView *)cutomView;
+
 + (void)hideHUDForView:(UIView *)view;
 
 

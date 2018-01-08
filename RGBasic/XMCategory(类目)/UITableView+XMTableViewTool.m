@@ -9,6 +9,8 @@
 #import "UITableView+XMTableViewTool.h"
 #import <objc/runtime.h>
 
+#import "UIView+XMViewRect.h"
+
 @implementation UITableView (XMTableViewTool)
 
 @dynamic placeHoldView;

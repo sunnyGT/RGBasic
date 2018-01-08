@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000C326E1EB98C8F00E75D6C /* XMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32411EB98C8F00E75D6C /* XMAppDelegate.m */; };
 		000C326F1EB98C8F00E75D6C /* XMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32441EB98C8F00E75D6C /* XMNavigationBar.m */; };
 		000C32701EB98C8F00E75D6C /* XMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32461EB98C8F00E75D6C /* XMNavigationController.m */; };
 		000C32711EB98C8F00E75D6C /* XMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32481EB98C8F00E75D6C /* XMViewController.m */; };
@@ -20,7 +19,6 @@
 		000C327C1EB98C8F00E75D6C /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32661EB98C8F00E75D6C /* Encryption.m */; };
 		000C327D1EB98C8F00E75D6C /* XMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C326A1EB98C8F00E75D6C /* XMHUD.m */; };
 		000C327E1EB98C8F00E75D6C /* RSAEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C326D1EB98C8F00E75D6C /* RSAEncryptor.m */; };
-		000C32801EB99C6A00E75D6C /* XMAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32401EB98C8F00E75D6C /* XMAppDelegate.h */; };
 		000C32811EB99C6A00E75D6C /* XMNavigationBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32431EB98C8F00E75D6C /* XMNavigationBar.h */; };
 		000C32821EB99C6A00E75D6C /* XMNavigationController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32451EB98C8F00E75D6C /* XMNavigationController.h */; };
 		000C32831EB99C6A00E75D6C /* XMViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32471EB98C8F00E75D6C /* XMViewController.h */; };
@@ -42,6 +40,7 @@
 		00DA41451F73556A00E767F5 /* UIButton+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DA41441F73556A00E767F5 /* UIButton+Tools.m */; };
 		00EC0AE0200305E300FB7735 /* XMNetworkConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0ADD200305E300FB7735 /* XMNetworkConfigure.m */; };
 		00EC0AE1200305E300FB7735 /* XMNetworkMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0ADF200305E300FB7735 /* XMNetworkMananger.m */; };
+		00EC0AE6200341AB00FB7735 /* XMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0AE5200341AB00FB7735 /* XMAppDelegate.m */; };
 		00EE6B861ED037D9007915A2 /* XMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE6B851ED037D9007915A2 /* XMTableViewController.m */; };
 		00EE6B891ED04649007915A2 /* UITableView+XMTableViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE6B881ED04649007915A2 /* UITableView+XMTableViewTool.m */; };
 		00F400D91FC2C131005722E5 /* XMFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F400D81FC2C131005722E5 /* XMFormViewController.m */; };
@@ -58,7 +57,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				000C32801EB99C6A00E75D6C /* XMAppDelegate.h in CopyFiles */,
 				000C32811EB99C6A00E75D6C /* XMNavigationBar.h in CopyFiles */,
 				000C32821EB99C6A00E75D6C /* XMNavigationController.h in CopyFiles */,
 				000C32831EB99C6A00E75D6C /* XMViewController.h in CopyFiles */,
@@ -79,8 +77,6 @@
 
 /* Begin PBXFileReference section */
 		000C32341EB98BEE00E75D6C /* libRGBasic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRGBasic.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		000C32401EB98C8F00E75D6C /* XMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMAppDelegate.h; sourceTree = "<group>"; };
-		000C32411EB98C8F00E75D6C /* XMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMAppDelegate.m; sourceTree = "<group>"; };
 		000C32431EB98C8F00E75D6C /* XMNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNavigationBar.h; sourceTree = "<group>"; };
 		000C32441EB98C8F00E75D6C /* XMNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNavigationBar.m; sourceTree = "<group>"; };
 		000C32451EB98C8F00E75D6C /* XMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNavigationController.h; sourceTree = "<group>"; };
@@ -145,7 +141,6 @@
 		003A2D091FC7F2620019DB5D /* XMPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMPopView.m; sourceTree = "<group>"; };
 		009B433B1ED55FAB00AFA967 /* UITableViewCell+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Tool.h"; sourceTree = "<group>"; };
 		009B433C1ED55FAB00AFA967 /* UITableViewCell+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Tool.m"; sourceTree = "<group>"; };
-		00AC0D831F28372900AB8003 /* XMTableViewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMTableViewCellDelegate.h; sourceTree = "<group>"; };
 		00D679E91ED68D6F00340668 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		00D679EA1ED68D6F00340668 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
 		00D679EB1ED68D6F00340668 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
@@ -165,6 +160,9 @@
 		00EC0ADD200305E300FB7735 /* XMNetworkConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNetworkConfigure.m; sourceTree = "<group>"; };
 		00EC0ADE200305E300FB7735 /* XMNetworkMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNetworkMananger.h; sourceTree = "<group>"; };
 		00EC0ADF200305E300FB7735 /* XMNetworkMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNetworkMananger.m; sourceTree = "<group>"; };
+		00EC0AE32003419900FB7735 /* XMTableViewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMTableViewCellDelegate.h; sourceTree = "<group>"; };
+		00EC0AE4200341AB00FB7735 /* XMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMAppDelegate.h; sourceTree = "<group>"; };
+		00EC0AE5200341AB00FB7735 /* XMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMAppDelegate.m; sourceTree = "<group>"; };
 		00EE6B841ED037D9007915A2 /* XMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMTableViewController.h; sourceTree = "<group>"; };
 		00EE6B851ED037D9007915A2 /* XMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMTableViewController.m; sourceTree = "<group>"; };
 		00EE6B871ED04649007915A2 /* UITableView+XMTableViewTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XMTableViewTool.h"; sourceTree = "<group>"; };
@@ -214,9 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				00EC0ADB200305E300FB7735 /* XMNetWork(网络) */,
-				00AC0D821F28371300AB8003 /* XMDelegate */,
-				000C32401EB98C8F00E75D6C /* XMAppDelegate.h */,
-				000C32411EB98C8F00E75D6C /* XMAppDelegate.m */,
 				000C32421EB98C8F00E75D6C /* XMBasicUI(UI基类) */,
 				000C32491EB98C8F00E75D6C /* XMCategory(类目) */,
 				000C32551EB98C8F00E75D6C /* XMManager(管理类) */,
@@ -232,6 +227,7 @@
 		000C32421EB98C8F00E75D6C /* XMBasicUI(UI基类) */ = {
 			isa = PBXGroup;
 			children = (
+				00EC0AE22003419900FB7735 /* XMDelegate */,
 				000C32431EB98C8F00E75D6C /* XMNavigationBar.h */,
 				000C32441EB98C8F00E75D6C /* XMNavigationBar.m */,
 				000C32471EB98C8F00E75D6C /* XMViewController.h */,
@@ -286,6 +282,8 @@
 		000C32551EB98C8F00E75D6C /* XMManager(管理类) */ = {
 			isa = PBXGroup;
 			children = (
+				00EC0AE4200341AB00FB7735 /* XMAppDelegate.h */,
+				00EC0AE5200341AB00FB7735 /* XMAppDelegate.m */,
 				000C325A1EB98C8F00E75D6C /* XMProjectManager.h */,
 				000C325B1EB98C8F00E75D6C /* XMProjectManager.m */,
 			);
@@ -296,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				000C32641EB98C8F00E75D6C /* AES */,
-				000C32671EB98C8F00E75D6C /* Common */,
 				000C32681EB98C8F00E75D6C /* ProgressHUD */,
 				000C326B1EB98C8F00E75D6C /* RSA */,
 			);
@@ -310,13 +307,6 @@
 				000C32661EB98C8F00E75D6C /* Encryption.m */,
 			);
 			path = AES;
-			sourceTree = "<group>";
-		};
-		000C32671EB98C8F00E75D6C /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		000C32681EB98C8F00E75D6C /* ProgressHUD */ = {
@@ -393,14 +383,6 @@
 			path = Relevance;
 			sourceTree = "<group>";
 		};
-		00AC0D821F28371300AB8003 /* XMDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				00AC0D831F28372900AB8003 /* XMTableViewCellDelegate.h */,
-			);
-			path = XMDelegate;
-			sourceTree = "<group>";
-		};
 		00EC0ADB200305E300FB7735 /* XMNetWork(网络) */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +392,14 @@
 				00EC0ADF200305E300FB7735 /* XMNetworkMananger.m */,
 			);
 			path = "XMNetWork(网络)";
+			sourceTree = "<group>";
+		};
+		00EC0AE22003419900FB7735 /* XMDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				00EC0AE32003419900FB7735 /* XMTableViewCellDelegate.h */,
+			);
+			path = XMDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,7 +463,6 @@
 				000C32701EB98C8F00E75D6C /* XMNavigationController.m in Sources */,
 				000C327C1EB98C8F00E75D6C /* Encryption.m in Sources */,
 				000C32751EB98C8F00E75D6C /* UITextField+WordLimit.m in Sources */,
-				000C326E1EB98C8F00E75D6C /* XMAppDelegate.m in Sources */,
 				000C327E1EB98C8F00E75D6C /* RSAEncryptor.m in Sources */,
 				000C32761EB98C8F00E75D6C /* UIView+XMViewRect.m in Sources */,
 				000C327D1EB98C8F00E75D6C /* XMHUD.m in Sources */,
@@ -497,6 +486,7 @@
 				7D7C99921EDC727C0053FEE8 /* UIView+Category.m in Sources */,
 				000C326F1EB98C8F00E75D6C /* XMNavigationBar.m in Sources */,
 				002BBC2D1EEFC9B90027D470 /* XMWKWebviewViewController.m in Sources */,
+				00EC0AE6200341AB00FB7735 /* XMAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

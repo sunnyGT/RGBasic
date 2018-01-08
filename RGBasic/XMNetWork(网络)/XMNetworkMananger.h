@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
 #import "XMNetworkConfigure.h"
 @class XMNetworkMananger;
+@class AFHTTPSessionManager;
+@class NSURLSessionConfiguration;
+@class NSURLSessionDataTask;
 
 typedef NS_ENUM(NSUInteger, SessionConfigurationType) {
     

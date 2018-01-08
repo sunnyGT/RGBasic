@@ -78,7 +78,6 @@
     
     if (tempTextField.text.length < self.minLength) {
         
-        [XMHUD showHUDToViewTop:[UIApplication sharedApplication].keyWindow onlyText:@"输入位数不足!"];
     }
 
 }

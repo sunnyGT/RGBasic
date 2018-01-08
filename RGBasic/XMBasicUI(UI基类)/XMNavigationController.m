@@ -8,6 +8,7 @@
 
 #import "XMNavigationController.h"
 #import "XMViewController.h"
+#import "XMNavigationBar.h"
 @interface XMNavigationController ()<UIGestureRecognizerDelegate>
 
 @end

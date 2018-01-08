@@ -8,7 +8,7 @@
 
 #import "XMViewController.h"
 #import "UIImage+AHUIImage.h"
-
+#import "XMMacro.h"
 @interface XMViewController ()
 
 @end

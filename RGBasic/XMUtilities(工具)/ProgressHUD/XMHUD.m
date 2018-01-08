@@ -7,7 +7,7 @@
 //
 
 #import "XMHUD.h"
-#import "MBProgressHUD.h"
+
 @implementation XMHUD
 
 #define HUD_TOP_ORIGINY (115 * Screen_Scale - Screen_CenterY)
@@ -37,28 +37,6 @@
     hud.customView = customView;
     [view addSubview:hud];
     [hud showAnimated:YES];
-}
-+  (void)popToView:(UIView *)view customView:(UIView *)customView{
-    
-    [MBProgressHUD hideHUDForView:view animated:YES];
-    UIView * popView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-    popView.backgroundColor = [UIColor redColor];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    label.text = @"qeqweq";
-    label.textColor = [UIColor whiteColor];
-    //[popView addSubview:label];
-    
-    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
-    hud.mode = MBProgressHUDModeCustomView;
-    hud.customView = label;//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"4.jpeg"]];
-    hud.animationType = MBProgressHUDAnimationZoomIn;
-    hud.bezelView.color = [UIColor blackColor];
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    
-    [view addSubview:hud];
-    [hud showAnimated:YES];
-    [hud hideAnimated:YES afterDelay:5];
 }
 
 + (void)showHUDToView:(UIView *)view delay:(NSTimeInterval)dalay{

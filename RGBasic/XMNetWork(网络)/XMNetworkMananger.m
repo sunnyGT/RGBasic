@@ -8,7 +8,7 @@
 
 #import "XMNetworkMananger.h"
 #import<CommonCrypto/CommonDigest.h>
-
+#import "AFNetworking.h"
 @interface XMNetworkMananger ()
 
 @property (nonatomic ,strong)NSURLSessionConfiguration *sessionConfiguration;
