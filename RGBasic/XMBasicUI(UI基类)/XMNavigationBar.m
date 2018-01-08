@@ -7,7 +7,7 @@
 //
 
 #import "XMNavigationBar.h"
-
+#import "XMMacro.h"
 @implementation XMNavigationBar
 
 

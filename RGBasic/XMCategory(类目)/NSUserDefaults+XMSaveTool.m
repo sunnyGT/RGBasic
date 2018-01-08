@@ -7,7 +7,7 @@
 //
 
 #import "NSUserDefaults+XMSaveTool.h"
-
+#import "XMMacro.h"
 @implementation NSUserDefaults (XMSaveTool)
 
 

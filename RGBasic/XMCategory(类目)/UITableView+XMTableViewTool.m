@@ -8,7 +8,7 @@
 
 #import "UITableView+XMTableViewTool.h"
 #import <objc/runtime.h>
-
+#import "XMMacro.h"
 #import "UIView+XMViewRect.h"
 
 @implementation UITableView (XMTableViewTool)

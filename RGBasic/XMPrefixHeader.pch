@@ -11,17 +11,17 @@
 
 
 #ifdef __OBJC__
-    #import "XMMacro.h"
-    #import "XMAppDelegate.h"
-    #import "XMHUD.h"
-    #import "XMNetworkMananger.h"
-    #import "UIView+XMViewRect.h"
-    #import "NSString+XMStringTool.h"
-    #import "Masonry.h"
-    #import "XMNavigationBar.h"
-    #import "XMNavigationController.h"
-    #import "XMViewController.h"
-    #import "NSUserDefaults+XMSaveTool.h"
+//    #import "XMMacro.h"
+//    #import "XMAppDelegate.h"
+//    #import "XMHUD.h"
+//    #import "XMNetworkMananger.h"
+//    #import "UIView+XMViewRect.h"
+//    #import "NSString+XMStringTool.h"
+//    #import "Masonry.h"
+//    #import "XMNavigationBar.h"
+//    #import "XMNavigationController.h"
+//    #import "XMViewController.h"
+//    #import "NSUserDefaults+XMSaveTool.h"
 #endif
 
 #endif /* XMPrefixHeader_pch */

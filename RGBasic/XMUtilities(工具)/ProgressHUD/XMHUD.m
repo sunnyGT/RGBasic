@@ -7,6 +7,7 @@
 //
 
 #import "XMHUD.h"
+#import "XMMacro.h"
 
 @implementation XMHUD
 
@@ -38,6 +39,7 @@
     [view addSubview:hud];
     [hud showAnimated:YES];
 }
+
 
 + (void)showHUDToView:(UIView *)view delay:(NSTimeInterval)dalay{
     

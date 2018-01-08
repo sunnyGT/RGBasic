@@ -10,7 +10,7 @@
 #import "XMNavigationController.h"
 #import "XMNavigationBar.h"
 #import "XMViewController.h"
-
+#import "XMMacro.h"
 
 @interface XMTabBarController ()<UITabBarControllerDelegate>
 
