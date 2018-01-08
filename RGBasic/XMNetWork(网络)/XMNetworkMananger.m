@@ -72,7 +72,7 @@
 - (AFHTTPSessionManager *)defaultSessionManager{
     
     NSString *baseURL = [XMNetworkConfigure networkConfigure].baseURL;
-    NSAssert(!([baseURL isEqualToString:@""] || baseURL == kCFNull || !baseURL ), @"请在didFinishLaunchingWithOptions中发生网络请求之前完成 XMNetworkConfigure 初始化并完成网络相关配置");
+    NSAssert(!([baseURL isEqualToString:@""] || baseURL == (id)kCFNull || !baseURL ), @"请在didFinishLaunchingWithOptions中发生网络请求之前完成 XMNetworkConfigure 初始化并完成网络相关配置");
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:baseURL] sessionConfiguration:self.sessionConfiguration];
     sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
     sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -279,7 +279,7 @@
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
 #ifdef DEBUG
-        NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,responseObject,error.description);
+        NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,response,error.description);
 #endif
         //对response操作
         if (error) {
