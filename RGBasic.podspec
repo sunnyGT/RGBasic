@@ -40,8 +40,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'RGBasicUI' do |bs|
 
-    bs.source_files = 'RGBasic/XMBasicUI(UI基类)/*.{h,m}' , 'RGBasic/XMBasicUI(UI基类)/**/*.{h,m}'
-    bs.public_header_files = 'RGBasic/XMBasicUI(UI基类)/*.h'
+    bs.source_files = 'RGBasic/XMBasicUI(UI基类)/*.{h,m}' , 'RGBasic/XMBasicUI(UI基类)/**/*.h'
     bs.dependency "Masonry", "~> 1.1.0"
     bs.dependency "RGBasic/RGMacro"
     bs.dependency "RGBasic/RGCategory"

@@ -10,6 +10,7 @@
 #import "UITableViewCell+Tool.h"
 #import "Masonry.h"
 #import "XMMacro.h"
+
 @interface XMTableViewController ()
 
 @end

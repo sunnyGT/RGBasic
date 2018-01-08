@@ -7,7 +7,8 @@
 //
 
 #import "XMViewController.h"
-#import "XMTableViewCellDelegate.h"
+
+@protocol XMTableViewCellDelegate;
 /**
  使用说明
  1.cell必须实现- (void)XM_setValue:(id)value;
