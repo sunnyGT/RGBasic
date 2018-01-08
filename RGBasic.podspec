@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RGBasic"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "A basic RGBasic."
   s.homepage     = "https://github.com/sunnyGT/RGBasic"
   s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/sunnyGT/RGBasic.git", :tag => s.version }
 
 
-  s.source_files  = "RGBasic/XM.h" , "RGBasic/Relevance/*.h" , "RGBasic/XMMacro.h" , "RGBasic/**/**/*.{h,m}"
+  s.source_files  = "RGBasic/XM.h" , "RGBasic/Relevance/*.h" , "RGBasic/XMMacro.h"
 
 
   s.subspec 'RGMacro' do |ms|

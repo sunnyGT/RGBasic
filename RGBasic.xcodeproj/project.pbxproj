@@ -17,7 +17,6 @@
 		000C32761EB98C8F00E75D6C /* UIView+XMViewRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32531EB98C8F00E75D6C /* UIView+XMViewRect.m */; };
 		000C32791EB98C8F00E75D6C /* XMProjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C325B1EB98C8F00E75D6C /* XMProjectManager.m */; };
 		000C327C1EB98C8F00E75D6C /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C32661EB98C8F00E75D6C /* Encryption.m */; };
-		000C327D1EB98C8F00E75D6C /* XMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C326A1EB98C8F00E75D6C /* XMHUD.m */; };
 		000C327E1EB98C8F00E75D6C /* RSAEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C326D1EB98C8F00E75D6C /* RSAEncryptor.m */; };
 		000C32811EB99C6A00E75D6C /* XMNavigationBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32431EB98C8F00E75D6C /* XMNavigationBar.h */; };
 		000C32821EB99C6A00E75D6C /* XMNavigationController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32451EB98C8F00E75D6C /* XMNavigationController.h */; };
@@ -30,7 +29,6 @@
 		000C32891EB99C6A00E75D6C /* XMMacro.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32541EB98C8F00E75D6C /* XMMacro.h */; };
 		000C328C1EB99C6A00E75D6C /* XMProjectManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C325A1EB98C8F00E75D6C /* XMProjectManager.h */; };
 		000C328E1EB99C6A00E75D6C /* Encryption.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32651EB98C8F00E75D6C /* Encryption.h */; };
-		000C328F1EB99C6A00E75D6C /* XMHUD.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C32691EB98C8F00E75D6C /* XMHUD.h */; };
 		000C32901EB99C6A00E75D6C /* RSAEncryptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 000C326C1EB98C8F00E75D6C /* RSAEncryptor.h */; };
 		000C32931EB99C9400E75D6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000C32921EB99C9400E75D6C /* UIKit.framework */; };
 		000C37101EB9C6D100E75D6C /* XMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000C370F1EB9C6D100E75D6C /* XMTabBarController.m */; };
@@ -68,7 +66,6 @@
 				000C32891EB99C6A00E75D6C /* XMMacro.h in CopyFiles */,
 				000C328C1EB99C6A00E75D6C /* XMProjectManager.h in CopyFiles */,
 				000C328E1EB99C6A00E75D6C /* Encryption.h in CopyFiles */,
-				000C328F1EB99C6A00E75D6C /* XMHUD.h in CopyFiles */,
 				000C32901EB99C6A00E75D6C /* RSAEncryptor.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,8 +96,6 @@
 		000C32601EB98C8F00E75D6C /* XMPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPrefixHeader.pch; sourceTree = "<group>"; };
 		000C32651EB98C8F00E75D6C /* Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encryption.h; sourceTree = "<group>"; };
 		000C32661EB98C8F00E75D6C /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
-		000C32691EB98C8F00E75D6C /* XMHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMHUD.h; sourceTree = "<group>"; };
-		000C326A1EB98C8F00E75D6C /* XMHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMHUD.m; sourceTree = "<group>"; };
 		000C326C1EB98C8F00E75D6C /* RSAEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAEncryptor.h; sourceTree = "<group>"; };
 		000C326D1EB98C8F00E75D6C /* RSAEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAEncryptor.m; sourceTree = "<group>"; };
 		000C32921EB99C9400E75D6C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -294,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				000C32641EB98C8F00E75D6C /* AES */,
-				000C32681EB98C8F00E75D6C /* ProgressHUD */,
 				000C326B1EB98C8F00E75D6C /* RSA */,
 			);
 			path = "XMUtilities(工具)";
@@ -307,15 +301,6 @@
 				000C32661EB98C8F00E75D6C /* Encryption.m */,
 			);
 			path = AES;
-			sourceTree = "<group>";
-		};
-		000C32681EB98C8F00E75D6C /* ProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				000C32691EB98C8F00E75D6C /* XMHUD.h */,
-				000C326A1EB98C8F00E75D6C /* XMHUD.m */,
-			);
-			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
 		000C326B1EB98C8F00E75D6C /* RSA */ = {
@@ -465,7 +450,6 @@
 				000C32751EB98C8F00E75D6C /* UITextField+WordLimit.m in Sources */,
 				000C327E1EB98C8F00E75D6C /* RSAEncryptor.m in Sources */,
 				000C32761EB98C8F00E75D6C /* UIView+XMViewRect.m in Sources */,
-				000C327D1EB98C8F00E75D6C /* XMHUD.m in Sources */,
 				000C32731EB98C8F00E75D6C /* NSUserDefaults+XMSaveTool.m in Sources */,
 				00EE6B891ED04649007915A2 /* UITableView+XMTableViewTool.m in Sources */,
 				00EC0AE1200305E300FB7735 /* XMNetworkMananger.m in Sources */,
