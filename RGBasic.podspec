@@ -63,11 +63,7 @@ Pod::Spec.new do |s|
 
   s.framework  = "UIKit"
   s.requires_arc = true
-
   s.xcconfig = {"USER_HEADER_SEARCH_PATHS"=>"$(SRCROOT)" }
 
-  # s.prefix_header_file = "RGBasic/XMPrefixHeader.pch"
-
-  # s.prefix_header_contents = '#import "XMMacro.h"','#import "XMAppDelegate.h"','#import "XMHUD.h"','#import "XMNetworkMananger.h"','#import "UIView+XMViewRect.h"','#import "NSString+XMStringTool.h"','#import "Masonry.h"','#import "XMNavigationBar.h"','#import "XMNavigationController.h"','#import "XMViewController.h"','#import "NSUserDefaults+XMSaveTool.h"'
  
 end

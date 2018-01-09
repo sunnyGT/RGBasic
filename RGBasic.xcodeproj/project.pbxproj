@@ -40,6 +40,7 @@
 		00EC0AED2003565800FB7735 /* XMProjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0AEB2003565800FB7735 /* XMProjectManager.m */; };
 		00EE6B861ED037D9007915A2 /* XMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE6B851ED037D9007915A2 /* XMTableViewController.m */; };
 		00EE6B891ED04649007915A2 /* UITableView+XMTableViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE6B881ED04649007915A2 /* UITableView+XMTableViewTool.m */; };
+		00F3221320045D330095A93C /* XMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F3221220045D330095A93C /* XMHUD.m */; };
 		00F400D91FC2C131005722E5 /* XMFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F400D81FC2C131005722E5 /* XMFormViewController.m */; };
 		00F400DC1FC2C4EB005722E5 /* XMForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F400DB1FC2C4EB005722E5 /* XMForm.m */; };
 		7D0AB7F61ED81119008EBB6A /* UIButton+ImageAndTitleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0AB7F51ED81119008EBB6A /* UIButton+ImageAndTitleLayout.m */; };
@@ -89,7 +90,6 @@
 		000C32521EB98C8F00E75D6C /* UIView+XMViewRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMViewRect.h"; sourceTree = "<group>"; };
 		000C32531EB98C8F00E75D6C /* UIView+XMViewRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMViewRect.m"; sourceTree = "<group>"; };
 		000C32541EB98C8F00E75D6C /* XMMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMacro.h; sourceTree = "<group>"; };
-		000C32601EB98C8F00E75D6C /* XMPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPrefixHeader.pch; sourceTree = "<group>"; };
 		000C32651EB98C8F00E75D6C /* Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encryption.h; sourceTree = "<group>"; };
 		000C32661EB98C8F00E75D6C /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
 		000C326C1EB98C8F00E75D6C /* RSAEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAEncryptor.h; sourceTree = "<group>"; };
@@ -160,6 +160,8 @@
 		00EE6B851ED037D9007915A2 /* XMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMTableViewController.m; sourceTree = "<group>"; };
 		00EE6B871ED04649007915A2 /* UITableView+XMTableViewTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XMTableViewTool.h"; sourceTree = "<group>"; };
 		00EE6B881ED04649007915A2 /* UITableView+XMTableViewTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XMTableViewTool.m"; sourceTree = "<group>"; };
+		00F3221220045D330095A93C /* XMHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMHUD.m; sourceTree = "<group>"; };
+		00F3221420045D3D0095A93C /* XMHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMHUD.h; sourceTree = "<group>"; };
 		00F400D71FC2C131005722E5 /* XMFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMFormViewController.h; sourceTree = "<group>"; };
 		00F400D81FC2C131005722E5 /* XMFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMFormViewController.m; sourceTree = "<group>"; };
 		00F400DA1FC2C4EB005722E5 /* XMForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMForm.h; sourceTree = "<group>"; };
@@ -209,7 +211,6 @@
 				000C32421EB98C8F00E75D6C /* XMBasicUI(UI基类) */,
 				000C32491EB98C8F00E75D6C /* XMCategory(类目) */,
 				000C32631EB98C8F00E75D6C /* XMUtilities(工具) */,
-				000C32601EB98C8F00E75D6C /* XMPrefixHeader.pch */,
 				000C32541EB98C8F00E75D6C /* XMMacro.h */,
 				000C35601EB99E0100E75D6C /* Relevance */,
 				00300B2E200098EE00ED11B1 /* XM.h */,
@@ -275,6 +276,7 @@
 		000C32631EB98C8F00E75D6C /* XMUtilities(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				00F3221120045D330095A93C /* ProgressHUD */,
 				000C32641EB98C8F00E75D6C /* AES */,
 				000C326B1EB98C8F00E75D6C /* RSA */,
 			);
@@ -385,6 +387,15 @@
 			path = "XMAboutProject(工程相关)";
 			sourceTree = "<group>";
 		};
+		00F3221120045D330095A93C /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				00F3221420045D3D0095A93C /* XMHUD.h */,
+				00F3221220045D330095A93C /* XMHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -443,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F3221320045D330095A93C /* XMHUD.m in Sources */,
 				000C32701EB98C8F00E75D6C /* XMNavigationController.m in Sources */,
 				000C327C1EB98C8F00E75D6C /* Encryption.m in Sources */,
 				000C32751EB98C8F00E75D6C /* UITextField+WordLimit.m in Sources */,
@@ -569,7 +581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 7E96WUDGN8;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RGBasic/XMPrefixHeader.pch";
+				GCC_PREFIX_HEADER = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -581,7 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 7E96WUDGN8;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RGBasic/XMPrefixHeader.pch";
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
