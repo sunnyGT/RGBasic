@@ -129,11 +129,23 @@
                            alpha:1];
 }
 
-- (NSString *)MD5{
+- (NSString *)MD5_16bit{
+    //16位
+    const char *charStr = [self UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(charStr, (CC_LONG)strlen(charStr), result);
+    NSMutableString *MD5Str = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH];
+    for (NSUInteger idx = 0 ; idx < CC_MD5_DIGEST_LENGTH; idx ++) {
+        [MD5Str appendFormat:@"%X",result[idx]];
+    }
+    return MD5Str;
+}
+
+- (NSString *)MD5_32bit{
     //32位
     const char *charStr = [self UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(charStr, CC_MD5_DIGEST_LENGTH, result);
+    CC_MD5(charStr, (CC_LONG)strlen(charStr), result);
     NSMutableString *MD5Str = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH*2];
     for (NSUInteger idx = 0 ; idx < CC_MD5_DIGEST_LENGTH; idx ++) {
         [MD5Str appendFormat:@"%02X",result[idx]];

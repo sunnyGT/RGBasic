@@ -100,7 +100,7 @@ static UIView *XMFormsFirstResponder(UIView *view)
     
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
-        make.trailing.mas_equalTo(-35.f);
+        make.trailing.mas_equalTo(-15.f);
         make.height.mas_offset(44.f);
         make.bottom.mas_equalTo(0);
     }];
@@ -164,8 +164,6 @@ static UIView *XMFormsFirstResponder(UIView *view)
 - (void)setup{
     [super setup];
     [self.contentView addSubview:self.vertiButton];
-    self.textField.textAlignment = NSTextAlignmentCenter;
-    
 }
 
 
@@ -209,9 +207,9 @@ static UIView *XMFormsFirstResponder(UIView *view)
 }
 
 - (void)getVertiCode:(UIButton *)sender{
-    
-    if ([self.formDelegate respondsToSelector:@selector(didClickedVertifaButton: timer:)]) {
-        [self.formDelegate didClickedVertifaButton:sender timer:_timer];
+    [sender addTimerWithCountTime:60];
+    if ([self.formDelegate respondsToSelector:@selector(didClickedVertifaButton:)]) {
+        [self.formDelegate didClickedVertifaButton:sender];
     }
 }
 @end
@@ -280,10 +278,11 @@ static UIView *XMFormsFirstResponder(UIView *view)
     }];
 }
 
-- (void)setData:(NSMutableDictionary *)data{
-    _data = [NSMutableDictionary dictionaryWithDictionary:data];
+- (void)setFormItems:(NSMutableArray<NSMutableArray<XMForm *> *> *)formItems{
+    _formItems = [NSMutableArray arrayWithArray:formItems];
     [self.itemTable reloadData];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -315,13 +314,15 @@ static UIView *XMFormsFirstResponder(UIView *view)
     CGRect viewRect = selectView.frame;
     CGRect overRect = [self.view convertRect:viewRect fromView:selectView.superview];
     if (CGRectIntersectsRect(keyboardRect, overRect)) {
-        CGPoint tempOffset = CGPointMake(self.itemTable.contentOffset.x,self.itemTable.contentOffset.y + fabs( CGRectGetMaxY(overRect) - CGRectGetMinY(keyboardRect)));
-        [self.itemTable setContentOffset:tempOffset];
+        
+        self.itemTable.layer.affineTransform =  CGAffineTransformTranslate(self.itemTable.layer.affineTransform, 0, -CGRectGetMaxY(overRect) + CGRectGetMinY(keyboardRect));
+        
     }
     [self tap];
 }
 
 - (void)hideKeyboard:(NSNotification *)sender{
+    self.itemTable.layer.affineTransform = CGAffineTransformIdentity;
     tap.enabled = NO;
 }
 
@@ -350,7 +351,7 @@ static UIView *XMFormsFirstResponder(UIView *view)
 
 - (XMForm *)formInData:(NSIndexPath *)indexPath{
 
-    id temp = self.data[@(indexPath.section)][indexPath.row];
+    id temp = self.formItems[indexPath.section][indexPath.row];
     XMForm *form = (XMForm *)temp;
     return form;
 }
@@ -381,11 +382,11 @@ static UIView *XMFormsFirstResponder(UIView *view)
     return 0.1f;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.data.allKeys.count;
+    return self.formItems.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return  [self.data[@(section)] count];
+    return  [self.formItems[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -406,6 +407,11 @@ static UIView *XMFormsFirstResponder(UIView *view)
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    [self.view endEditing:YES];
 }
 
 

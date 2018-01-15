@@ -8,7 +8,10 @@
 
 #import "XMViewController.h"
 #import <WebKit/WebKit.h>
-@interface XMWKWebviewViewController : XMViewController
+@interface XMWKWebviewViewController : XMViewController{
+    
+    WKWebView *_XMWebView;
+}
 
 @property (nonatomic ,strong)WKWebView *XMWebView;
 @property (nonatomic ,strong)UIProgressView *progressView;

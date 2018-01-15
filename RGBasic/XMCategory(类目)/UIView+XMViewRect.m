@@ -60,6 +60,7 @@
 }
 
 - (CGFloat)maxY{
+    
     return CGRectGetMaxY(self.frame);
 }
 
@@ -78,6 +79,7 @@
 - (CGFloat)height{
     return CGRectGetHeight(self.frame);
 }
+
 - (void)setHeight:(CGFloat)height{
     self.frame = CGRectMake(self.x, self.y, self.width, height);
 }

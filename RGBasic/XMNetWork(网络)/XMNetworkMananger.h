@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XMNetworkConfigure.h"
+#import "XMNetworkContext.h"
 @class XMNetworkMananger;
 @class AFHTTPSessionManager;
 
@@ -30,7 +31,7 @@ typedef NS_ENUM(NSUInteger, SessionConfigurationType) {
 - (AFHTTPSessionManager *)defaultSessionManager;
 
 - (NSDictionary *)handleParameters:(NSDictionary *)parameters error:(NSError **)error;
-- (NSDictionary *)handleSuccessResponse:(id)response error:(NSError **)error;
+- (XMNetworkContext *)handleSuccessResponse:(id)response error:(NSError **)error;
 
 /**
  自定义处理错误信息 在错误回调返回之前执行
@@ -47,13 +48,13 @@ typedef NS_ENUM(NSUInteger, SessionConfigurationType) {
 
 - (NSURLSessionDataTask *)XM_Get:(NSDictionary *)paramDic
                              URL:(NSString *)URL
-                         success:(void (^)(id responseObject, NSURLSessionDataTask * task)) success
+                         success:(void (^)(XMNetworkContext *context, NSURLSessionDataTask * task)) success
                          failure:(void (^)(NSError * error,NSURLSessionDataTask * task)) failure;
 
 
 - (NSURLSessionDataTask *)XM_Post:(NSDictionary *)paramDic
                               URL:(NSString *)URL
-                          success:(void (^)(id responseObject, NSURLSessionDataTask * task)) success
+                          success:(void (^)(XMNetworkContext *context, NSURLSessionDataTask * task)) success
                           failure:(void (^)(NSError * error,NSURLSessionDataTask * task)) failure;
 
 
@@ -61,7 +62,7 @@ typedef NS_ENUM(NSUInteger, SessionConfigurationType) {
                                 URL:(NSString *)URL
                          uploadData:(NSData *)uploadData
                            progress:(void (^)(NSProgress *progress))progress
-                            success:(void (^)(id responseObject, NSURLSessionDataTask *task))success
+                            success:(void (^)(XMNetworkContext *context, NSURLSessionDataTask *task))success
                             failure:(void (^)(NSError *error, NSURLSessionDataTask *task))failure;
 
 

@@ -28,5 +28,5 @@
 + (XMPopView *)popToView:(UIView *)view contentView:(UIView *)contentView;
 - (void)hideAnimated:(BOOL)animation;
 + (BOOL)hideHUDForView:(UIView *)view animated:(BOOL)animated;
-- (void)show;
+- (void)showWithAnimation:(BOOL)animation;
 @end

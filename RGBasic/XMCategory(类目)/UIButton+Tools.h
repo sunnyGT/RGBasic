@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (Tools)
-- (dispatch_source_t)addTimerWithCountTime:(NSTimeInterval)time;
+@property (nonatomic ,assign) dispatch_source_t timer;
+- (void)addTimerWithCountTime:(NSTimeInterval)time;
 @end

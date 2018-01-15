@@ -34,9 +34,9 @@ static NSString *cellIdentifer;
     [self.view addSubview:self.tabelList];
 }
 
-- (void)setDatas:(NSMutableDictionary *)datas{
+- (void)setDatas:(NSMutableArray *)datas{
 
-    _datas = [NSMutableDictionary dictionaryWithDictionary:datas];
+    _datas = [NSMutableArray arrayWithArray:datas];
     [_tabelList reloadData];
 }
 
@@ -65,20 +65,18 @@ static NSString *cellIdentifer;
 #pragma mark - tableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return self.datas.allKeys.count?self.datas.allKeys.count:0;
+    return self.datas.count?self.datas.count:0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    NSString *key = self.datas.allKeys[section];
-    return ((NSMutableArray *)self.datas[key]).count;
+    return [self.datas[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
-    id key = self.datas.allKeys[indexPath.section];
-    NSMutableArray *valueArr = self.datas[key];
+    NSMutableArray *valueArr = self.datas[indexPath.section];
     id value = valueArr[indexPath.row];
     if ([cell respondsToSelector:NSSelectorFromString(@"XM_setValue:")]) {
        [cell performSelector:NSSelectorFromString(@"XM_setValue:") withObject:value];
@@ -87,8 +85,8 @@ static NSString *cellIdentifer;
 }
 
 - (id)modelOfIndexPath:(NSIndexPath *)indexPath{
-    id key = self.datas.allKeys[indexPath.section];
-    NSMutableArray *valueArr = self.datas[key];
+    
+    NSMutableArray *valueArr = self.datas[indexPath.section];
     id value = valueArr[indexPath.row];
     return value;
 }
@@ -113,29 +111,43 @@ static NSString *cellIdentifer;
 #pragma mark Tool
 
 - (void)updateCell:(NSIndexPath *)indexPath value:(id)value animation:(UITableViewRowAnimation)animation{
-    
-    id key = self.datas.allKeys[indexPath.section];
-    NSMutableArray *tempArr = [[self.datas objectForKey:key] mutableCopy];
+
+    NSMutableArray *tempArr = self.datas[indexPath.section];
     [tempArr replaceObjectAtIndex:indexPath.row withObject:value];
-    [self.datas setObject:tempArr forKey:key];
     [self.tabelList reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+}
+
+- (void)updateSection:(NSUInteger)section value:(NSMutableArray *)values animation:(UITableViewRowAnimation)animation{
+    
+    [self.datas replaceObjectAtIndex:section withObject:values];
+    [self.tabelList reloadRowsAtIndexPaths:@[[NSIndexSet indexSetWithIndex:section]] withRowAnimation:animation];
+    
 }
 
 - (void)insertCell:(NSIndexPath *)indexPath value:(id)value animation:(UITableViewRowAnimation)animation{
     
-    id key = self.datas.allKeys[indexPath.section];
-    NSMutableArray *tempArr = [[self.datas objectForKey:key] mutableCopy];
+    NSMutableArray *tempArr = self.datas[indexPath.section];
     [tempArr insertObject:value atIndex:indexPath.row];
-    [self.datas setObject:tempArr forKey:key];
     [self.tabelList insertRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
 }
 
+- (void)insertSection:(NSUInteger)section value:(NSMutableArray *)value animation:(UITableViewRowAnimation)animation{
+
+    [self.datas insertObject:value atIndex:section];
+    [self.tabelList insertRowsAtIndexPaths:@[[NSIndexSet indexSetWithIndex:section]] withRowAnimation:animation];
+}
+
 - (void)removeCell:(NSIndexPath *)indexPath animation:(UITableViewRowAnimation)animation{
-    id key = self.datas.allKeys[indexPath.section];
-    NSMutableArray *tempArr = [[self.datas objectForKey:key] mutableCopy];
+
+    NSMutableArray *tempArr = self.datas[indexPath.section];
     [tempArr removeObjectAtIndex:indexPath.row];
-    [self.datas setObject:tempArr forKey:key];
     [self.tabelList deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+}
+
+- (void)removeSection:(NSUInteger)section animation:(UITableViewRowAnimation)animation{
+    
+    [self.datas removeObjectAtIndex:section];
+    [self.tabelList deleteRowsAtIndexPaths:@[[NSIndexSet indexSetWithIndex:section]] withRowAnimation:animation];
 }
 
 
@@ -154,7 +166,6 @@ static NSString *cellIdentifer;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         [self removeCell:indexPath animation:0];
-        
     }
 }
 

@@ -11,19 +11,19 @@
 #import "UIButton+Tools.h"
 
 @protocol XMVertiCodeTabelViewCellDelegate<NSObject>
-
-- (void)didClickedVertifaButton:(UIButton *)button timer:(dispatch_source_t)timer;
+@optional
+- (void)didClickedVertifaButton:(UIButton *)button;
 @end;
 
 @protocol XMTextFieldTabelViewCellDelegate<NSObject>
-
+@optional
 - (BOOL)shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string textField:(UITextField *)textField;
 @end
 
 @interface XMFormViewController : XMViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic ,strong)UITableView *itemTable;
-@property (nonatomic ,strong)NSMutableDictionary <id ,NSMutableArray<XMForm *>* >*data;
+@property (nonatomic ,strong)NSMutableArray < NSMutableArray<XMForm *>* >*formItems;
 
 - (XMForm *)formInData:(NSIndexPath *)indexPath;
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -43,7 +43,7 @@
 @end
 
 @interface XMVertiCodeTabelViewCell:XMTextFiledTabelViewCell{
-    dispatch_source_t _timer;
+  
 }
 @property (nonatomic ,assign)id <XMVertiCodeTabelViewCellDelegate>formDelegate;
 @property (nonatomic ,strong)UIButton *vertiButton;

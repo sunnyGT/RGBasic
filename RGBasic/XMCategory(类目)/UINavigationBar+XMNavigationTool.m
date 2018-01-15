@@ -8,7 +8,7 @@
 
 #import "UINavigationBar+XMNavigationTool.h"
 #import <objc/runtime.h>
-#import "UIImage+AHUIImage.h"
+#import "UIImage+XMUIImage.h"
 #import "XMMacro.h"
 
 @implementation UINavigationBar (XMNavigationTool)

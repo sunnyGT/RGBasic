@@ -12,7 +12,7 @@
 @interface XMHUD : NSObject
 
 + (void)showHUDToView:(UIView *)view;
-+ (void)showCustomHUDToView:(UIView *)view;
+//+ (void)showCustomHUDToView:(UIView *)view;
 + (void)showHUDToView:(UIView *)view text:(NSString *)text;
 
 + (void)showHUDToView:(UIView *)view delay:(NSTimeInterval)dalay;
@@ -26,7 +26,7 @@
 + (void)showHUDToViewTop:(UIView *)view onlyText:(NSString *)onlyText;
 + (void)showHUDToView:(UIView *)view onlyText:(NSString *)onlyText;
 
-+ (MBProgressHUD *)showHUDToView:(UIView *)view progress:(NSProgress *)progress complete:(BOOL)complete;
++ (MBProgressHUD *)showHUDToView:(UIView *)view progress:(NSProgress *)progress;
 
 + (void)hideHUDForView:(UIView *)view;
 

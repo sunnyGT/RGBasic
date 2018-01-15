@@ -1,16 +1,16 @@
 //
-//  UIImage+AHUIImage.m
-//  AH
+//  UIImage+XMUIImage.m
+//  XM
 //
 //  Created by Robin on 16/10/13.
 //  Copyright © 2016年 Robin. All rights reserved.
 //
 
-#import "UIImage+AHUIImage.h"
+#import "UIImage+XMUIImage.h"
 #import <CoreGraphics/CoreGraphics.h>
 #import <CoreGraphics/CGDataProvider.h>
 
-@implementation UIImage (AHUIImage)
+@implementation UIImage (XMUIImage)
 
 #define CONTENT_MAX_WIDTH   300.0f
 

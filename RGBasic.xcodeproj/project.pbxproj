@@ -33,6 +33,7 @@
 		002BBC2D1EEFC9B90027D470 /* XMWKWebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002BBC2C1EEFC9B90027D470 /* XMWKWebviewViewController.m */; };
 		003A2D0A1FC7F2620019DB5D /* XMPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003A2D091FC7F2620019DB5D /* XMPopView.m */; };
 		009B433D1ED55FAB00AFA967 /* UITableViewCell+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 009B433C1ED55FAB00AFA967 /* UITableViewCell+Tool.m */; };
+		00C5CFEA2007134E005CB2D5 /* XMNetworkContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5CFE92007134E005CB2D5 /* XMNetworkContext.m */; };
 		00DA41451F73556A00E767F5 /* UIButton+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DA41441F73556A00E767F5 /* UIButton+Tools.m */; };
 		00EC0AE0200305E300FB7735 /* XMNetworkConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0ADD200305E300FB7735 /* XMNetworkConfigure.m */; };
 		00EC0AE1200305E300FB7735 /* XMNetworkMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0ADF200305E300FB7735 /* XMNetworkMananger.m */; };
@@ -41,11 +42,12 @@
 		00EE6B861ED037D9007915A2 /* XMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE6B851ED037D9007915A2 /* XMTableViewController.m */; };
 		00EE6B891ED04649007915A2 /* UITableView+XMTableViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE6B881ED04649007915A2 /* UITableView+XMTableViewTool.m */; };
 		00F3221320045D330095A93C /* XMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F3221220045D330095A93C /* XMHUD.m */; };
+		00F322312004A07B0095A93C /* UITabBar+HitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F322302004A07B0095A93C /* UITabBar+HitTest.m */; };
 		00F400D91FC2C131005722E5 /* XMFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F400D81FC2C131005722E5 /* XMFormViewController.m */; };
 		00F400DC1FC2C4EB005722E5 /* XMForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F400DB1FC2C4EB005722E5 /* XMForm.m */; };
 		7D0AB7F61ED81119008EBB6A /* UIButton+ImageAndTitleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0AB7F51ED81119008EBB6A /* UIButton+ImageAndTitleLayout.m */; };
 		7D7C99921EDC727C0053FEE8 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7C99911EDC727C0053FEE8 /* UIView+Category.m */; };
-		7D7C99D11EDE51D20053FEE8 /* UIImage+AHUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7C99D01EDE51D20053FEE8 /* UIImage+AHUIImage.m */; };
+		7D7C99D11EDE51D20053FEE8 /* UIImage+XMUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7C99D01EDE51D20053FEE8 /* UIImage+XMUIImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -132,6 +134,8 @@
 		003A2D091FC7F2620019DB5D /* XMPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMPopView.m; sourceTree = "<group>"; };
 		009B433B1ED55FAB00AFA967 /* UITableViewCell+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Tool.h"; sourceTree = "<group>"; };
 		009B433C1ED55FAB00AFA967 /* UITableViewCell+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Tool.m"; sourceTree = "<group>"; };
+		00C5CFE82007134E005CB2D5 /* XMNetworkContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNetworkContext.h; sourceTree = "<group>"; };
+		00C5CFE92007134E005CB2D5 /* XMNetworkContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNetworkContext.m; sourceTree = "<group>"; };
 		00D679E91ED68D6F00340668 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		00D679EA1ED68D6F00340668 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
 		00D679EB1ED68D6F00340668 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 		00EE6B881ED04649007915A2 /* UITableView+XMTableViewTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XMTableViewTool.m"; sourceTree = "<group>"; };
 		00F3221220045D330095A93C /* XMHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMHUD.m; sourceTree = "<group>"; };
 		00F3221420045D3D0095A93C /* XMHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMHUD.h; sourceTree = "<group>"; };
+		00F3222F2004A07B0095A93C /* UITabBar+HitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBar+HitTest.h"; sourceTree = "<group>"; };
+		00F322302004A07B0095A93C /* UITabBar+HitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+HitTest.m"; sourceTree = "<group>"; };
 		00F400D71FC2C131005722E5 /* XMFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMFormViewController.h; sourceTree = "<group>"; };
 		00F400D81FC2C131005722E5 /* XMFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMFormViewController.m; sourceTree = "<group>"; };
 		00F400DA1FC2C4EB005722E5 /* XMForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMForm.h; sourceTree = "<group>"; };
@@ -170,8 +176,8 @@
 		7D0AB7F51ED81119008EBB6A /* UIButton+ImageAndTitleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageAndTitleLayout.m"; sourceTree = "<group>"; };
 		7D7C99901EDC727C0053FEE8 /* UIView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
 		7D7C99911EDC727C0053FEE8 /* UIView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
-		7D7C99CF1EDE51CA0053FEE8 /* UIImage+AHUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AHUIImage.h"; sourceTree = "<group>"; };
-		7D7C99D01EDE51D20053FEE8 /* UIImage+AHUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AHUIImage.m"; sourceTree = "<group>"; };
+		7D7C99CF1EDE51CA0053FEE8 /* UIImage+XMUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XMUIImage.h"; sourceTree = "<group>"; };
+		7D7C99D01EDE51D20053FEE8 /* UIImage+XMUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XMUIImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,10 +271,12 @@
 				009B433C1ED55FAB00AFA967 /* UITableViewCell+Tool.m */,
 				7D0AB7F41ED81119008EBB6A /* UIButton+ImageAndTitleLayout.h */,
 				7D0AB7F51ED81119008EBB6A /* UIButton+ImageAndTitleLayout.m */,
-				7D7C99CF1EDE51CA0053FEE8 /* UIImage+AHUIImage.h */,
-				7D7C99D01EDE51D20053FEE8 /* UIImage+AHUIImage.m */,
+				7D7C99CF1EDE51CA0053FEE8 /* UIImage+XMUIImage.h */,
+				7D7C99D01EDE51D20053FEE8 /* UIImage+XMUIImage.m */,
 				00DA41431F73556A00E767F5 /* UIButton+Tools.h */,
 				00DA41441F73556A00E767F5 /* UIButton+Tools.m */,
+				00F3222F2004A07B0095A93C /* UITabBar+HitTest.h */,
+				00F322302004A07B0095A93C /* UITabBar+HitTest.m */,
 			);
 			path = "XMCategory(类目)";
 			sourceTree = "<group>";
@@ -364,6 +372,8 @@
 				00EC0ADD200305E300FB7735 /* XMNetworkConfigure.m */,
 				00EC0ADE200305E300FB7735 /* XMNetworkMananger.h */,
 				00EC0ADF200305E300FB7735 /* XMNetworkMananger.m */,
+				00C5CFE82007134E005CB2D5 /* XMNetworkContext.h */,
+				00C5CFE92007134E005CB2D5 /* XMNetworkContext.m */,
 			);
 			path = "XMNetWork(网络)";
 			sourceTree = "<group>";
@@ -455,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00F3221320045D330095A93C /* XMHUD.m in Sources */,
+				00C5CFEA2007134E005CB2D5 /* XMNetworkContext.m in Sources */,
 				000C32701EB98C8F00E75D6C /* XMNavigationController.m in Sources */,
 				000C327C1EB98C8F00E75D6C /* Encryption.m in Sources */,
 				000C32751EB98C8F00E75D6C /* UITextField+WordLimit.m in Sources */,
@@ -469,12 +480,13 @@
 				000C32721EB98C8F00E75D6C /* NSString+XMStringTool.m in Sources */,
 				009B433D1ED55FAB00AFA967 /* UITableViewCell+Tool.m in Sources */,
 				000C32711EB98C8F00E75D6C /* XMViewController.m in Sources */,
+				00F322312004A07B0095A93C /* UITabBar+HitTest.m in Sources */,
 				00F400D91FC2C131005722E5 /* XMFormViewController.m in Sources */,
 				00EC0AE0200305E300FB7735 /* XMNetworkConfigure.m in Sources */,
 				00EC0AEC2003565800FB7735 /* XMAppDelegate.m in Sources */,
 				000C32741EB98C8F00E75D6C /* UINavigationBar+XMNavigationTool.m in Sources */,
 				000C37101EB9C6D100E75D6C /* XMTabBarController.m in Sources */,
-				7D7C99D11EDE51D20053FEE8 /* UIImage+AHUIImage.m in Sources */,
+				7D7C99D11EDE51D20053FEE8 /* UIImage+XMUIImage.m in Sources */,
 				00F400DC1FC2C4EB005722E5 /* XMForm.m in Sources */,
 				00EE6B861ED037D9007915A2 /* XMTableViewController.m in Sources */,
 				7D0AB7F61ED81119008EBB6A /* UIButton+ImageAndTitleLayout.m in Sources */,

@@ -22,9 +22,11 @@
     [hud showAnimated:YES];
 }
 
+/*
 + (void)showCustomHUDToView:(UIView *)view{
     [self showHUDToView:view customView:nil];
 }
+ */
 
 + (void)showHUDToView:(UIView *)view customView:(UIView *)customView{
 
@@ -102,13 +104,14 @@
     hud.mode = MBProgressHUDModeText;
     hud.animationType = MBProgressHUDAnimationZoomOut;
     hud.label.text = onlyText;
-    hud.label.font = XMFontOfSize(14);
+    hud.label.font = [UIFont systemFontOfSize:15.f];
     hud.offset = CGPointMake(0, OffsetY);
 
     [hud hideAnimated:YES afterDelay:2.f];
 }
 
-+ (MBProgressHUD *)showHUDToView:(UIView *)view progress:(NSProgress *)progress complete:(BOOL)complete{
++ (MBProgressHUD *)showHUDToView:(UIView *)view progress:(NSProgress *)progress {
+    
     [MBProgressHUD hideHUDForView:view animated:NO];
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
     hud.animationType = MBProgressHUDAnimationFade;
@@ -118,13 +121,6 @@
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.animationType = MBProgressHUDAnimationZoomOut;
     hud.progressObject = progress;
-    if (complete) {
-        UIImage *image = [[UIImage imageNamed:@"Completed"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        hud.customView = imageView;
-        hud.mode = MBProgressHUDModeCustomView;
-        hud.label.text = @"完成";
-    }
     return hud;
 
 }

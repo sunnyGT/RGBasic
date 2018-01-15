@@ -7,7 +7,7 @@
 //
 
 #import "XMViewController.h"
-#import "UIImage+AHUIImage.h"
+#import "UIImage+XMUIImage.h"
 #import "XMMacro.h"
 @interface XMViewController ()
 
@@ -93,7 +93,7 @@
 - (UIBarButtonItem *)setNavigationBarRightItemWithTitle:(NSString *)title{
     
     UIBarButtonItem *rightItem =  [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(customRightNavItemAction:)];
-    [rightItem setTitleTextAttributes:@{NSFontAttributeName:XMFontOfSize(16.f)} forState:UIControlStateNormal];
+    [rightItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.f]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = rightItem;
     return rightItem;
 }

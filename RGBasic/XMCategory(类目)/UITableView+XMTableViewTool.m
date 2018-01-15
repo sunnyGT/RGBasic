@@ -17,22 +17,22 @@
 
 XM_DYNAMIC_PROPERTY_OBJECT(placeHoldView, setPlaceHoldView, RETAIN, UIView *);
 
-//+ (void)load{
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        
-//        Class cls = [self class];
-//        
-//        SEL originSEL = @selector(reloadData);
-//        
-//        SEL swizzlSEL = @selector(swizzl_reloadData);
-//        
-//        Method originMethod = class_getInstanceMethod(cls, originSEL);
-//        Method swizzlMethod = class_getInstanceMethod(cls, swizzlSEL);
-//        
-//        method_exchangeImplementations(originMethod, swizzlMethod);
-//    });
-//}
++ (void)load{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        Class cls = [self class];
+        
+        SEL originSEL = @selector(reloadData);
+        
+        SEL swizzlSEL = @selector(swizzl_reloadData);
+        
+        Method originMethod = class_getInstanceMethod(cls, originSEL);
+        Method swizzlMethod = class_getInstanceMethod(cls, swizzlSEL);
+        
+        method_exchangeImplementations(originMethod, swizzlMethod);
+    });
+}
 
 - (void)swizzl_reloadData{
     [self swizzl_reloadData];
@@ -52,7 +52,9 @@ XM_DYNAMIC_PROPERTY_OBJECT(placeHoldView, setPlaceHoldView, RETAIN, UIView *);
 }
 
 - (void)configurePlaceHoldView{
-    
+    if ([self isKindOfClass:NSClassFromString(@"UIInputSwitcherTableView")] || [self isKindOfClass:NSClassFromString(@"UIPickerTableView")]) {
+        return;
+    }
     if ([self isEnmptyOrNot]) {
         [self setupPlaceHoldView];
     }else{
@@ -70,8 +72,7 @@ XM_DYNAMIC_PROPERTY_OBJECT(placeHoldView, setPlaceHoldView, RETAIN, UIView *);
         
         [self defualtPlaceHoldView];
     }
-    [self addSubview:self.placeHoldView];
-    self.scrollEnabled = NO;
+    [self insertSubview:self.placeHoldView atIndex:0];
     
 }
 

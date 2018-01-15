@@ -9,6 +9,7 @@
 #import "XMNetworkMananger.h"
 #import<CommonCrypto/CommonDigest.h>
 #import "AFNetworking.h"
+#import "XMNetworkContext.h"
 @interface XMNetworkMananger ()
 
 @property (nonatomic ,strong)NSURLSessionConfiguration *sessionConfiguration;
@@ -84,7 +85,7 @@
 
 - (NSURLSessionDataTask *)XM_Get:(NSDictionary *)paramDic
                              URL:(NSString *)URL
-                         success:(void (^)(id, NSURLSessionDataTask *))success
+                         success:(void (^)(XMNetworkContext *, NSURLSessionDataTask *))success
                          failure:(void (^)(NSError *, NSURLSessionDataTask *))failure{
     
     [self configureManager];
@@ -93,8 +94,13 @@
         NSError *error = nil;
         headledParam = [self handleParameters:paramDic error:&error];
         if (error) {
-            failure(error,nil);
+            if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                [self handleRequestFailure:error];
+            }
+#ifdef DEBUG
             NSAssert(error, @"参数处理出错%@",URL);
+#endif
+            failure(error,nil);
         }
     }
 
@@ -103,22 +109,27 @@
                                     progress:NULL
                                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                          //返回数据处理
-                                         id handelDic = responseObject;
+                                         XMNetworkContext *context = nil;
                                          if ([self respondsToSelector:@selector(handleSuccessResponse: error:)]) {
                                              NSError *error = nil;
-                                             handelDic = [self handleSuccessResponse:responseObject error:&error];
+                                             context = [self handleSuccessResponse:responseObject error:&error];
 #ifdef DEBUG
                                              NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,responseObject,error.description);
 #endif
                                              if (error) {
+                                                 if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                                                     [self handleRequestFailure:error];
+                                                 }
                                                  failure(error,task);
                                                  return;
                                              }
                                          }
-                                         success(handelDic,task);
+                                         if (success) success(context,task);
                                          
                                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                         
+                                         if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                                             [self handleRequestFailure:error];
+                                         }
                                          failure(error,task);
                                      }];
     [task resume];
@@ -129,7 +140,7 @@
 
 - (NSURLSessionDataTask *)XM_Post:(NSDictionary *)paramDic
                               URL:(NSString *)URL
-                          success:(void (^)(id, NSURLSessionDataTask *))success
+                          success:(void (^)(XMNetworkContext *, NSURLSessionDataTask *))success
                           failure:(void (^)(NSError *, NSURLSessionDataTask *))failure{
     
      [self configureManager];
@@ -141,6 +152,9 @@
         NSError *error = nil;
         headledParam = [self handleParameters:paramDic error:&error];
         if (error) {
+            if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                [self handleRequestFailure:error];
+            }
             failure(error,nil);
             
 #ifdef DEBUG
@@ -156,23 +170,28 @@
                                      progress:NULL
                                       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                           //返回数据处理
-                                          id handelDic = responseObject;
+                                          XMNetworkContext *context = nil;
                                           if ([self respondsToSelector:@selector(handleSuccessResponse: error:)]) {
                                               NSError *error = nil;
-                                              handelDic = [self handleSuccessResponse:responseObject error:&error];
+                                              context = [self handleSuccessResponse:responseObject error:&error];
                                               
 #ifdef DEBUG
                                               NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,responseObject,error.description);
 #endif
                                               if (error) {
+                                                  if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                                                      [self handleRequestFailure:error];
+                                                  }
                                                   failure(error,task);
                                                   return;
                                               }
                                           }
-                                          if (success) success(handelDic,task);
+                                          if (success) success(context,task);
                                       }
                                       failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                          
+                                          if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                                              [self handleRequestFailure:error];
+                                          }
                                           failure(error,task);
                                       }];
     [task resume];
@@ -182,15 +201,20 @@
 - (NSURLSessionDataTask *)XM_Upload:(NSDictionary *)paramDic
                                 URL:(NSString *)URL
                          uploadData:(NSData *)uploadData
-                           progress:(void (^)(NSProgress *progress))progress
-                            success:(void (^)(id responseObject, NSURLSessionDataTask *task))success
-                            failure:(void (^)(NSError *error, NSURLSessionDataTask *task))failure{
+                           progress:(void (^)(NSProgress *))progress
+                            success:(void (^)(XMNetworkContext *, NSURLSessionDataTask *))success
+                            failure:(void (^)(NSError *, NSURLSessionDataTask *))failure{
+    
     [self configureManager];
     NSDictionary *headledParam = paramDic;
     if ([self respondsToSelector:@selector(handleParameters: error:)]) {
         NSError *error = nil;
         headledParam = [self handleParameters:paramDic error:&error];
         if (error) {
+            
+            if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                [self handleRequestFailure:error];
+            }
             failure(error,nil);
             
 #ifdef DEBUG
@@ -202,7 +226,8 @@
 
     NSURLSessionDataTask *uploadTask = [_HTTPSessionManager POST:URL parameters:headledParam constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-        [formData appendPartWithFileData:uploadData name:@"uploadFile" fileName:[NSString stringWithFormat:@"XM_%lf.png",[NSDate date].timeIntervalSince1970] mimeType:@"image/png"];
+        [formData appendPartWithFileData:uploadData name:headledParam[@"fileName"] fileName:[NSString stringWithFormat:@"XM_%lf.png",[NSDate date].timeIntervalSince1970] mimeType:@"image/png"];
+        
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
         if (progress){
@@ -212,24 +237,28 @@
         }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //返回数据处理
-        id handelDic = responseObject;
+        XMNetworkContext *context = nil;
         if ([self respondsToSelector:@selector(handleSuccessResponse: error:)]) {
             NSError *error = nil;
             
-            handelDic = [self handleSuccessResponse:responseObject error:&error];
+            context = [self handleSuccessResponse:responseObject error:&error];
 #ifdef DEBUG
             NSLog(@"-----\n URL:%@ \n Param:%@ \n response:%@ \n  error:%@",URL,headledParam,responseObject,error.description);
 #endif
             if (error) {
-                
+                if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                    [self handleRequestFailure:error];
+                }
                 failure(error,task);
                 return;
             }
         }
-        success(handelDic,task);
+        if (success) success(context,task);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-
+        if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+            [self handleRequestFailure:error];
+        }
         failure(error,task);
     }];
     
@@ -249,6 +278,9 @@
         NSError *error = nil;
         headledParam = [self handleParameters:paramDic error:&error];
         if (error) {
+            if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                [self handleRequestFailure:error];
+            }
             failure(error,nil);
             
 #ifdef DEBUG
@@ -283,9 +315,12 @@
 #endif
         //对response操作
         if (error) {
-            
+            if ([self respondsToSelector:@selector(handleRequestFailure:)]) {
+                [self handleRequestFailure:error];
+            }
             failure(error,downloadTask);
         }else{
+            
             success(filePath,downloadTask);
         }
     }];
@@ -309,7 +344,6 @@
     [params setObject:hash forKey:@"hash"];
     
 // hash apiId terminal time
-
     return params;
 }
 
@@ -323,22 +357,23 @@
     return hash;
 }
 
-- (NSDictionary *)handleSuccessResponse:(id)response error:(NSError *__autoreleasing *)error{
+- (XMNetworkContext *)handleSuccessResponse:(id)response error:(NSError *__autoreleasing *)error{
     
-    if ([response isKindOfClass:[NSDictionary class]] && [response[@"Data"] isKindOfClass:[NSDictionary class]]) {
-        if ([response[@"Code"] isEqualToString:@"000000"] ) {
-            
-            return response;
-        }else{
-            
-            *error = [NSError errorWithDomain:response[@"Msg"] code:[response[@"Code"] integerValue] userInfo:response];
-        }
+    XMNetworkContext *context = nil;
+    context = [XMNetworkContext contenxtWithDic:response error:error];
+    if (error) {
+        *error  = [NSError errorWithDomain:@"返回数据格式错误" code:1050000 userInfo:@{@"response":response}];
+        return context;
+    }
+    if ([context.Code isEqualToString:@"000000"]) {
+        
+        return context;
         
     }else{
         
-        *error  = [NSError errorWithDomain:@"返回数据格式错误" code:1050000 userInfo:@{@"response":response}];
+        *error = [NSError errorWithDomain:context.Msg code:[context.Code integerValue] userInfo:response];
     }
-    return response;
+    return context;
 }
 
 - (NSString *)MD5:(NSString *)str{

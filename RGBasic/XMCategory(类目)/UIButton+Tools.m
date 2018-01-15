@@ -7,12 +7,15 @@
 //
 
 #import "UIButton+Tools.h"
+#import <objc/runtime.h>
+#import "XMMacro.h"
 
 @implementation UIButton (Tools)
+@dynamic timer;
 
+XM_DYNAMIC_PROPERTY_N_TYPE(timer, setTimer, dispatch_source_t)
 
-
-- (dispatch_source_t)addTimerWithCountTime:(NSTimeInterval)time{
+- (void)addTimerWithCountTime:(NSTimeInterval)time{
     
     self.enabled = NO;
     __block NSTimeInterval maxTime = time;
@@ -34,8 +37,7 @@
     });
     
     dispatch_resume(timer);
-    
-    return timer;
+    self.timer = timer;
 }
 
 @end

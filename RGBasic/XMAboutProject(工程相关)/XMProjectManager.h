@@ -22,6 +22,4 @@
  */
 - (UIViewController *)topViewController;
 
-
-
 @end

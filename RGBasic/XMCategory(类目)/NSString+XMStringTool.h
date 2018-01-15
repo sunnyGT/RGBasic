@@ -35,7 +35,9 @@ typedef enum : NSUInteger {
 - (BOOL)isEmpty;
 
 //加密相关
-- (NSString *)MD5;
+- (NSString *)MD5_16bit;//默认 大写
+- (NSString *)MD5_32bit;//默认 大写
+
 - (NSString *)RSA_Encode:(NSString *)publicKey;
 - (NSString *)RSA_Decode:(NSString *)privateKey;
 

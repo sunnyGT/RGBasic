@@ -18,7 +18,6 @@
 + (XMPopView *)popToView:(UIView *)view contentView:(UIView *)contentView {
     XMPopView *popView = [[self alloc] initWithView:view];
     popView.contentView = contentView;
-    [popView show];
     return popView;
 }
 
@@ -64,24 +63,25 @@
     [self hideAnimated:YES];
 }
 
-- (void)show{
-    
-    if ([self.delegate respondsToSelector:@selector(customAnimationForShow:)]) {
-        [self.delegate customAnimationForShow:self];
-    }else{
-        self.backgroundView.layer.opacity = 0.f;
-        self.contentView.layer.affineTransform = CGAffineTransformMakeScale(5, 5);
-        self.contentView.layer.opacity = 0.f;
-        [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.backgroundView.layer.opacity = 0.3f;
-            self.contentView.layer.affineTransform = CGAffineTransformIdentity;
-            self.contentView.layer.opacity = 1.f;
-        } completion:^(BOOL finished) {
-            if (finished) {
-                self.backgroundView.layer.opacity = 1.f;
+- (void)showWithAnimation:(BOOL)animation{
+    if (animation) {
+        if ([self.delegate respondsToSelector:@selector(customAnimationForShow:)]) {
+            [self.delegate customAnimationForShow:self];
+        }else{
+            self.backgroundView.layer.opacity = 0.f;
+            self.contentView.layer.affineTransform = CGAffineTransformMakeScale(5, 5);
+            self.contentView.layer.opacity = 0.f;
+            [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.backgroundView.layer.opacity = 0.3f;
                 self.contentView.layer.affineTransform = CGAffineTransformIdentity;
-            }
-        }];
+                self.contentView.layer.opacity = 1.f;
+            } completion:^(BOOL finished) {
+                if (finished) {
+                    self.backgroundView.layer.opacity = 1.f;
+                    self.contentView.layer.affineTransform = CGAffineTransformIdentity;
+                }
+            }];
+        }
     }
 }
 

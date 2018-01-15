@@ -1,6 +1,6 @@
 //
-//  UIImage+AHUIImage.h
-//  AH
+//  UIImage+XMUIImage.h
+//  XM
 //
 //  Created by Robin on 16/10/13.
 //  Copyright © 2016年 Robin. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (AHUIImage)
+@interface UIImage (XMUIImage)
 
 //裁剪图片的指定区域
 - (UIImage *)getSubImage:(CGRect)rect;
