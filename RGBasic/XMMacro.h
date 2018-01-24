@@ -13,6 +13,17 @@
 
 #define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
+#define AdjustsScrollViewInsetsToNO(scrollView)\
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {\
+[scrollView   performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@(2)];\
+}\
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+
 #ifndef __OPTIMIZE__
 #define NSLog(...) NSLog(__VA_ARGS__)
 #else
@@ -157,11 +168,8 @@ id clsObject = [cls new];
 
 #pragma mark - Colors
 //************************Color************************ //
-#define  ThemeColor  [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1]
 
-#define  ThemeTintColor   [UIColor colorWithRed:250/255.0 green:76/255.0 blue:20/255.0 alpha:1]
-
-#define  VCBackgroudColor [UIColor colorWithRed:240/255.0 green:246/255.0 blue:250/255.0 alpha:1]
+#define  PlaceholdColor [UIColor colorWithRed:240/255.0 green:246/255.0 blue:250/255.0 alpha:1]
 
 #define  LightGrayColor  [UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1]
 

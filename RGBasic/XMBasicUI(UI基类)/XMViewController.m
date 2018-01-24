@@ -7,11 +7,12 @@
 //
 
 #import "XMViewController.h"
-#import "UIImage+XMUIImage.h"
 #import "XMMacro.h"
+
 @interface XMViewController ()
 
 @end
+
 
 @implementation XMViewController
 
@@ -40,17 +41,19 @@
     }
 }
 
+
+
 #pragma mark - CustomConfigure
 - (void)customSetup{
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = PlaceholdColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (UIBarButtonItem *)defaultNavigationBarLeftItem{
     
-    UIBarButtonItem *leftItem = [self setNavigationBarLeftItemWithImage:[UIImage imageNamed:@"Nav_Back"]];
-    [leftItem setTitleTextAttributes:@{NSForegroundColorAttributeName:ThemeColor} forState:UIControlStateNormal];
+    UIBarButtonItem *leftItem = [self setNavigationBarLeftItemWithImage:[UIImage imageNamed:@"nav_Back"]];
+    [leftItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
     return leftItem;    
 }
 

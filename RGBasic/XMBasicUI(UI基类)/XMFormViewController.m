@@ -62,31 +62,35 @@ static UIView *XMFormsFirstResponder(UIView *view)
     if (self.form.appearence) {
         [self configureFormAppearence];
     }
-    if ([form conformsToProtocol:@protocol(XMFormDelegate)]) {
-        self.textField.keyboardType = [[form valueForKeyPath:@"keyboardType"] integerValue];
-    }
-    
 }
 
 - (void)configureFormAppearence{
     if (!self.form.appearence) {
         return;
     }
+
     self.titleLabel.textColor = self.form.appearence.titleColor? : self.titleLabel.textColor;
     self.titleLabel.font = self.form.appearence.titleFont? :self.titleLabel.font;
+    
     self.textField.textColor = self.form.appearence.contentColor? :self.textField.textColor;
     self.textField.font = self.form.appearence.contentFont? :self.textField.font;
-    self.textField.textAlignment = self.form.appearence.textAlignment?  :self.textField.textAlignment;
-    self.textField.keyboardType = self.form.appearence.keyBoardType? :self.textField.keyboardType;
-    self.textField.secureTextEntry = self.form.appearence.isSecure;
     
-    if (self.form.appearence.minLength && self.form.appearence.maxLength) {
-         [self.textField configureMaxLength:self.form.appearence.maxLength minLength:self.form.appearence.minLength];
-    }else if (self.form.appearence.minLength) {
-        [self.textField configureMaxLength:NSIntegerMax minLength:self.form.appearence.minLength];
-    }else if (self.form.appearence.maxLength) {
-        [self.textField configureMaxLength:self.form.appearence.maxLength minLength:0];
+    self.textField.textAlignment = self.form.appearence.textAlignment?  :self.textField.textAlignment;
+    
+    if ([self.form.appearence isKindOfClass:[XMTextFormAppearence class]]) {
+        XMTextFormAppearence *appearence = (XMTextFormAppearence *)self.form.appearence;
+        self.textField.keyboardType = appearence.keyBoardType? :self.textField.keyboardType;
+        self.textField.secureTextEntry = appearence.isSecure;
+        
+        if (appearence.minLength && appearence.maxLength) {
+            [self.textField configureMaxLength:appearence.maxLength minLength:appearence.minLength];
+        }else if (appearence.minLength) {
+            [self.textField configureMaxLength:NSIntegerMax minLength:appearence.minLength];
+        }else if (appearence.maxLength) {
+            [self.textField configureMaxLength:appearence.maxLength minLength:0];
+        }
     }
+    
 }
 
 - (void)layoutSubviews{
@@ -101,7 +105,7 @@ static UIView *XMFormsFirstResponder(UIView *view)
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
         make.trailing.mas_equalTo(-15.f);
-        make.height.mas_offset(44.f);
+       // make.height.mas_offset(44.f);
         make.bottom.mas_equalTo(0);
     }];
 }
@@ -161,6 +165,29 @@ static UIView *XMFormsFirstResponder(UIView *view)
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
 }
 
+- (void)configureFormAppearence{
+    
+    [super configureFormAppearence];
+    if ([self.form.appearence isKindOfClass:[XMVerticaFormAppearence class]]) {
+        XMVerticaFormAppearence *appearence = (XMVerticaFormAppearence *)self.form.appearence;
+        
+        if (appearence.veriBtnBackgroudColor) {
+            self.vertiButton.backgroundColor = appearence.veriBtnBackgroudColor;
+        }
+        if (appearence.titleColor) {
+             [self.vertiButton setTitleColor:appearence.titleColor forState:UIControlStateNormal];
+        }
+        
+        if (appearence.minLength && appearence.maxLength) {
+            [self.textField configureMaxLength:appearence.maxLength minLength:appearence.minLength];
+        }else if (appearence.minLength) {
+            [self.textField configureMaxLength:10 minLength:appearence.minLength];
+        }else if (appearence.maxLength) {
+            [self.textField configureMaxLength:appearence.maxLength minLength:0];
+        }
+    }
+}
+
 - (void)setup{
     [super setup];
     [self.contentView addSubview:self.vertiButton];
@@ -178,7 +205,7 @@ static UIView *XMFormsFirstResponder(UIView *view)
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
         make.trailing.mas_equalTo(self.vertiButton.mas_leading).offset(-15);
-        make.height.mas_offset(44.f);
+        //make.height.mas_offset(44.f);
         make.bottom.mas_equalTo(0);
     }];
     
@@ -196,8 +223,8 @@ static UIView *XMFormsFirstResponder(UIView *view)
     if (!_vertiButton) {
         _vertiButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_vertiButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-        [_vertiButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _vertiButton.backgroundColor = ThemeTintColor;
+        [_vertiButton setTitleColor:LightTextGrayColor forState:UIControlStateNormal];
+        _vertiButton.backgroundColor = PlaceholdColor;
         _vertiButton.layer.cornerRadius = 27/2.f;
         _vertiButton.layer.masksToBounds = YES;
         _vertiButton.titleLabel.font = [UIFont systemFontOfSize:13];
@@ -332,11 +359,10 @@ static UIView *XMFormsFirstResponder(UIView *view)
         _itemTable.delegate = self;
         _itemTable.dataSource = self;
         _itemTable.estimatedRowHeight = 10.f;
+        _itemTable.rowHeight = 45.f;
         _itemTable.estimatedSectionFooterHeight = 0.f;
         _itemTable.estimatedSectionHeaderHeight = 0.f;
-        _itemTable.rowHeight = UITableViewAutomaticDimension;
         _itemTable.tableFooterView = [UIView new];
-        _itemTable.backgroundColor = VCBackgroudColor;
         [_itemTable registerClass:[XMAccTabelViewCell class] forCellReuseIdentifier:NSStringFromClass([XMAccTabelViewCell class])];
         
         [_itemTable registerClass:[XMTextFiledTabelViewCell class] forCellReuseIdentifier:NSStringFromClass([XMTextFiledTabelViewCell class])];

@@ -50,4 +50,5 @@ typedef enum : NSUInteger {
 + (NSString *)decodeQRCIImage:(CIImage *)image;
 + (NSString *)decodeQRImage:(UIImage *)image;
 + (NSString *)decodeQRImagefileURL:(NSURL *)fileURL;
+
 @end

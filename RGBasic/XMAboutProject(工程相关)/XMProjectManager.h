@@ -16,6 +16,7 @@
 
 + (XMProjectManager *)manager;
 
++ (void)setupReachability;
 /**
  
  @return 当前显示的视图

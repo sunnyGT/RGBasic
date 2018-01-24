@@ -106,7 +106,7 @@
 #pragma mark - 自定义Tabber样式
 - (void)configureTabbarAppearence{
     
-    self.tabBar.tintColor = ThemeTintColor;
+    self.tabBar.tintColor = [UIColor blackColor];
 }
 
 #pragma mark - 自定义事件

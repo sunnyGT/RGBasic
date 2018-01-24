@@ -80,7 +80,7 @@ XM_DYNAMIC_PROPERTY_OBJECT(placeHoldView, setPlaceHoldView, RETAIN, UIView *);
     [self.superview layoutIfNeeded];
     UIView *containView = [[UIView alloc] initWithFrame:self.bounds];
     
-    UIImage *placeHoldImage = [UIImage imageNamed:@"placeHoldImage"];
+    UIImage *placeHoldImage = [UIImage imageNamed:@"none"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:placeHoldImage];
     imageView.bounds = (CGRect){CGPointZero ,placeHoldImage.size};
     imageView.center = self.center;
@@ -88,7 +88,6 @@ XM_DYNAMIC_PROPERTY_OBJECT(placeHoldView, setPlaceHoldView, RETAIN, UIView *);
     
     UILabel *alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width, 30.f)];
     alertLabel.center = CGPointMake(imageView.center.x, imageView.y - alertLabel.height);
-    alertLabel.text = @"除了一阵风什么都没有";
     alertLabel.textAlignment = NSTextAlignmentCenter;
     alertLabel.textColor = [UIColor lightGrayColor];
     [containView addSubview:alertLabel];

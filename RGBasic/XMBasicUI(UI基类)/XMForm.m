@@ -11,6 +11,12 @@
 @implementation XMFormAppearence
 
 @end
+@implementation XMTextFormAppearence
+
+@end
+@implementation XMVerticaFormAppearence
+
+@end
 
 @implementation XMForm
 
@@ -28,5 +34,5 @@
 
 
 @implementation XMTextFiledForm
-@synthesize keyboardType;
+
 @end

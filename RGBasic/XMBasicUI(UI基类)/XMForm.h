@@ -14,23 +14,27 @@ typedef enum : NSUInteger {
     Form_Vertica,
 } FormType;
 
-@protocol XMFormDelegate <NSObject>
-
-@property (nonatomic ,assign)UIKeyboardType keyboardType;
-@end
-
-
 @interface XMFormAppearence:NSObject
 
 @property (nonatomic ,strong)UIColor *titleColor;
 @property (nonatomic ,strong)UIColor *contentColor;
 @property (nonatomic ,strong)UIFont *titleFont;
 @property (nonatomic ,strong)UIFont *contentFont;
-@property (nonatomic ,assign)UIKeyboardType keyBoardType;
 @property (nonatomic ,assign)NSTextAlignment textAlignment;
+@end
+
+@interface XMTextFormAppearence:XMFormAppearence
+
+@property (nonatomic ,assign)UIKeyboardType keyBoardType;
 @property (nonatomic ,assign)BOOL isSecure;
 @property (nonatomic ,assign)NSInteger maxLength;
 @property (nonatomic ,assign)NSInteger minLength;
+@end
+
+@interface XMVerticaFormAppearence:XMTextFormAppearence
+
+@property (nonatomic ,strong)UIColor *veriBtnBackgroudColor;
+@property (nonatomic ,strong)UIColor *veriBtnTitleColor;
 @end
 
 @interface XMForm : NSObject
@@ -46,7 +50,7 @@ typedef enum : NSUInteger {
 
 @end
 
-@interface XMTextFiledForm : XMForm<XMFormDelegate>
+@interface XMTextFiledForm : XMForm
 
 @end
 

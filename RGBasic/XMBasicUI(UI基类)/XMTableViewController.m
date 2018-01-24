@@ -79,7 +79,12 @@ static NSString *cellIdentifer;
     NSMutableArray *valueArr = self.datas[indexPath.section];
     id value = valueArr[indexPath.row];
     if ([cell respondsToSelector:NSSelectorFromString(@"XM_setValue:")]) {
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
        [cell performSelector:NSSelectorFromString(@"XM_setValue:") withObject:value];
+#pragma clang diagnostic pop
+
     }
     return cell;
 }

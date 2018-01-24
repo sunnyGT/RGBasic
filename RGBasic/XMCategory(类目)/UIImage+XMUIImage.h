@@ -62,4 +62,6 @@
 - (UIImage *)maskWithImage:(const UIImage *)maskImage;
 
 + (UIImage *)imageFromText:(NSArray*)arrContent withFont: (CGFloat)fontSize;
+
++ (UIImage *)xm_imageNamed:(NSString *)name inBundle:(NSBundle *)bundle;
 @end

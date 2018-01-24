@@ -10,11 +10,11 @@
 #import <WebKit/WebKit.h>
 @interface XMWKWebviewViewController : XMViewController{
     
-    WKWebView *_XMWebView;
+    WKWebView *XMWebView;
 }
 
 @property (nonatomic ,strong)WKWebView *XMWebView;
 @property (nonatomic ,strong)UIProgressView *progressView;
 @property (nonatomic ,assign)CGFloat progressHeight;
-
+@property (nonatomic ,strong)UIColor *progressColor;
 @end

@@ -10,7 +10,6 @@
 #import "XMMacro.h"
 @implementation XMNavigationBar
 
-
 - (instancetype)init{
     self = [super init];
     if (self) {
@@ -32,7 +31,6 @@
 #pragma mark - configure custom titleTextAttributes
 - (void)defaultAttributes{
 
-    self.barTintColor = ThemeColor;
     self.translucent = YES;
 }
 
