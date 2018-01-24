@@ -44,8 +44,7 @@
             case AFNetworkReachabilityStatusReachableViaWWAN:
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 //无网络
-                [[M topViewController] showNetworkErrorView];
-                //[(XMViewController *)[M topViewController] hideNetworkErrorView];
+                [[M topViewController] hideNetworkErrorView];
                 break;
                 
             case AFNetworkReachabilityStatusNotReachable:
