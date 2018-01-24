@@ -43,17 +43,23 @@
     [back setTitle:@"返回" forState:UIControlStateNormal];
     [back setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     back.titleLabel.font = XMFontOfSize(16.f);
-    [back setImage:[UIImage imageNamed:@"Nav_Back"] forState:UIControlStateNormal];
+    [back setImage:[UIImage imageNamed:@"nav_Back"] forState:UIControlStateNormal];
     [back addTarget:self action:@selector(customLeftNavItemAction:) forControlEvents:UIControlEventTouchUpInside];
     [back sizeToFit];
     return back;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIBarButtonItem *leftBack = [self setNavigationBarLeftItemWithCustomView:[self navCustomBackView]];
-    UIBarButtonItem *leftClose = [self setNavigationBarLeftItemWithTitle:@"关闭"];
+    
+    UIButton *close = [UIButton buttonWithType:UIButtonTypeCustom];
+    [close setTitle:@"关闭" forState:UIControlStateNormal];
+    [close setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    close.titleLabel.font = XMFontOfSize(16.f);
+    [close sizeToFit];
+    
+    UIBarButtonItem *leftClose = [self setNavigationBarLeftItemWithCustomView:close];
     leftClose.tintColor = [UIColor blackColor];
     self.navigationItem.leftBarButtonItems = @[leftBack,leftClose];
     self.progressHeight = self.progressHeight? :2.f;
