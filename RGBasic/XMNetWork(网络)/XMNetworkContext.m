@@ -8,7 +8,7 @@
 
 #import "XMNetworkContext.h"
 #import <objc/runtime.h>
-#import "XM.h"
+
 @implementation XMNetworkContext
 
 + (XMNetworkContext *)contenxtWithDic:(NSDictionary *)dic error:(NSError *__autoreleasing *)error{

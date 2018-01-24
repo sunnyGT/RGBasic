@@ -6,10 +6,9 @@
 //  Copyright © 2018年 robin. All rights reserved.
 //
 
-#import "XMViewController.h"
+#import <UIKit/UIKit.h>
 
-
-@protocol XMViewControllerEmptyDataSettingDelegate
+@protocol UIViewControllerEmptyDataSettingDelegate
 
 @optional
 - (NSString *)alertContent;
@@ -25,7 +24,7 @@ typedef NS_ENUM(NSUInteger, AlertType) {
     AlertForError
 };
 
-@interface XMViewController (Extend)
+@interface UIViewController (Extend)
 
 @property (nonatomic ,strong)UIView *alertView;
 @property (nonatomic ,strong)UIView *netWorkErrorView;

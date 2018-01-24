@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      = "A basic RGBasic."
   s.homepage     = "https://github.com/sunnyGT/RGBasic"
   s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "Robin_Gzb" => "a184820975@sina.cn" }
+  s.author       = { "Robin_Gzb" => "a184820975@sina.cn" }
   s.platform     = :ios
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
@@ -58,6 +58,7 @@ Pod::Spec.new do |s|
 
     as.source_files = 'RGBasic/XMAboutProject(工程相关)/*.{h,m}'
     as.dependency "RGBasic/RGBasicUI"
+    as.dependency "AFNetworking", "~> 3.1.0"
   end
   
 

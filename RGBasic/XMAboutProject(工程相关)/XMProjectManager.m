@@ -11,7 +11,8 @@
 #import "XMTabBarController.h"
 #import "XMAppDelegate.h"
 #import "AFNetworkReachabilityManager.h"
-#import "XMViewController+Extend.h"
+#import "UIViewController+Extend.h"
+
 @implementation XMProjectManager
 
 + (XMProjectManager *)manager{
@@ -43,13 +44,13 @@
             case AFNetworkReachabilityStatusReachableViaWWAN:
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 //无网络
-                [(XMViewController *)[M topViewController] showNetworkErrorView];
+                [[M topViewController] showNetworkErrorView];
                 //[(XMViewController *)[M topViewController] hideNetworkErrorView];
                 break;
                 
             case AFNetworkReachabilityStatusNotReachable:
                 //无网络
-                [(XMViewController *)[M topViewController] showNetworkErrorView];
+                [[M topViewController] showNetworkErrorView];
                 break;
             case AFNetworkReachabilityStatusUnknown:
                 //网络地址出错

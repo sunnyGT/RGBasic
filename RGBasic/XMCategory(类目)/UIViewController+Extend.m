@@ -6,12 +6,11 @@
 //  Copyright © 2018年 robin. All rights reserved.
 //
 
-
-#import "XMViewController+Extend.h"
+#import "UIViewController+Extend.h"
 #import <Objc/runtime.h>
 #import "UIImage+XMUIImage.h"
 #import "XMMacro.h"
-@implementation XMViewController (Extend)
+@implementation UIViewController (Extend)
 @dynamic alertView;
 @dynamic netWorkErrorView;
 
