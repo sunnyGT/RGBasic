@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/sunnyGT/RGBasic.git", :tag => s.version }
-  s.resource     = 'RGBasic/Resources/RGBasicSDK.bundle'
+  s.resource     = 'Resources/*.{png,xib,nib,bundle}'
 
   s.source_files  = "RGBasic/XM.h"
 
