@@ -11,11 +11,14 @@
 #import "Masonry.h"
 #import "XMMacro.h"
 
-@interface XMTableViewController ()
+@interface XMTableViewController (){
+    
+    NSString *cellIdentifer;
+}
 
 @end
 
-static NSString *cellIdentifer;
+
 @implementation XMTableViewController
 
 - (void)viewWillLayoutSubviews{
